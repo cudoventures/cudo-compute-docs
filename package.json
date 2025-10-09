@@ -1,0 +1,17 @@
+{
+    "name": "cudo-docs",
+    "version": "0.1.0",
+    "private": true,
+    "type": "module",
+    "description": "Documentation package",
+    "license": "MIT",
+    "scripts": {
+        "sort:api": "node ./lib/sortTags.js -i ./api-reference/openapi.json -p"
+    },
+    "keywords": [],
+    "author": "",
+    "devDependencies": {
+        "@types/node": "^24.7.0",
+        "openapi-types": "^12.1.3"
+    }
+}
