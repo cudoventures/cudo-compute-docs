@@ -4000,6 +4000,11 @@
     "version": "1.0.0"
   },
   "openapi": "3.0.3",
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
   "paths": {
     "/v1/api-keys": {
       "get": {
@@ -11125,7 +11130,10 @@
   },
   "servers": [
     {
-      "url": "https://rest.compute.cudo.org/"
+      "url": "https://rest.compute.cudo.org"
+    },
+    {
+      "url": "http://localhost:8080"
     }
   ],
   "tags": [

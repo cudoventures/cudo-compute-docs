@@ -17,15 +17,80 @@
   "navigation": {
     "tabs": [
       {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Getting started",
+            "pages": [
+              "index",
+              "quickstart"
+            ]
+          },
+          {
+            "group": "Customization",
+            "pages": [
+              "essentials/settings",
+              "essentials/navigation"
+            ]
+          },
+          {
+            "group": "Writing content",
+            "pages": [
+              "essentials/markdown",
+              "essentials/code",
+              "essentials/images",
+              "essentials/reusable-snippets"
+            ]
+          },
+          {
+            "group": "Tools",
+            "pages": [
+              "tools/cli",
+              "tools/python-client",
+              "tools/dstack",
+              "tools/terraform"
+            ]
+          }
+        ]
+      },
+      {
         "tab": "API reference",
         "groups": [
           {
-            "group": "API documentation",
+            "group": "Basics",
+            "pages": [
+              "api-reference/introduction",
+              "api-reference/authentication",
+              "api-reference/errors",
+              "api-reference/rate-limits",
+              "api-reference/examples"
+            ]
+          },
+          {
+            "group": "Endpoints",
             "openapi": {
               "source": "/api-reference/openapi.json",
               "directory": "api-reference"
             }
           }
+        ]
+      },
+      {
+        "tab": "Apps",
+        "pages": [
+          "apps"
+        ]
+      },
+      {
+        "tab": "Tutorials",
+        "pages": [
+          "tutorials"
+        ]
+      },
+      {
+        "tab": "Help",
+        "pages": [
+          "help"
         ]
       }
     ],
@@ -52,7 +117,7 @@
     "links": [
       {
         "label": "Support",
-        "href": "mailto:support@cudoventures.com"
+        "href": "https://cudo.sysaidit.com/spaces/login?manual=true"
       }
     ],
     "primary": {
