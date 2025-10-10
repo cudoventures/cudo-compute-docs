@@ -1,0 +1,50 @@
+---
+title: Deploy configuration
+titleDir: Bare metal
+description: How to re-deploy or re-configure a bare metal machine
+tag: Guide
+---
+
+## Deploy a bare metal machine configuration
+
+You can [create a bare metal machine](docs/bare-metal/create-a-bare-metal-machine) without any kind of configuration. This is useful if you want to create a bare metal machine quickly (to reserve in-demand machines or create many machines ahead of time) and then configure it later.
+
+Sometimes, you may want to deploy a new configuration for your bare metal machine. This could be to change the operating system, update the SSH keys with new keys you have added from the platform, or make other changes to the machine's cloud init configuration.
+
+::Alert{variant="error"}
+This will delete all data on the bare metal machine. Make sure you have backed up any important data before proceeding.
+::
+
+To deploy a new configuration for a bare metal machine, you can use the "Deploy operating system" item from the options menu on the bare metal machines list page. Or you can use the quick buttons at the top right-hand side of the bare metal machine details page.
+
+## Select an operating system
+
+You can select the operating system you would like to deploy on your bare metal machine. The options available will depend on the machine type you have selected. The following options are available:
+
+- Ubuntu 22.04 (ubuntu/jammy)
+- Ubuntu 24.04 (ubuntu/noble)
+
+### SSH keys
+You can configure the SSH keys you would like to be deployed to your bare metal machine. You can choose from the following options:
+
+- **Include all project collaborator keys** - This will include the keys of all the users that you have given access to your project
+- **Include only my keys** - This will include just the keys you have added
+- **Use custom keys** - This will allow you to add any keys you wish for this bare metal machine
+
+### Cloud-init configuration
+You can configure the cloud-init configuration you would like to be deployed to your bare metal machine. This will allow you to configure your machine on first boot. The cloud init configuration will include the SSH keys from the SSH keys section above and you can also add your own configuration.
+
+For example, you can add the following configuration to set the hostname of your machine:
+
+```yaml
+# cloud-config
+hostname: my-machine
+```
+This will set the hostname of your machine to "my-machine" on first boot.
+
+You can also add other configuration options, such as setting up users, installing packages, and configuring network settings. For more information on cloud-init configuration, you can refer to the [cloud-init documentation](https://cloudinit.readthedocs.io/en/latest/).
+
+### Deploy
+Once you have selected the operating system and configured the SSH keys and cloud-init configuration, you can click the "Deploy" button to deploy the new configuration for your bare metal machine.
+
+This will start the deployment process and your bare metal machine will be reconfigured with the new operating system and configuration.

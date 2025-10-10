@@ -1,0 +1,51 @@
+---
+title: Requirements
+titleDir: Supply
+description: Our technical requirements to join the network as a supplier.
+---
+To join the network of suppliers and to enable the installation of the CUDO Compute software stack, a supplier must meet the minimum requirements described below:
+
+1. In line with CUDO Compute’s mission for a greener future, the infrastructure must be hosted in a data center powered by renewable energy or use renewable energy itself.
+
+2. The hosting facility must satisfy the following requirements:
+   - Redundant power, cooling, and networking (N+1 or better).
+   - Security at both physical and digital levels (biometric/controlled access, 24/7 monitoring).
+   - 24/7 operations with proactive monitoring and alerting.
+   - Concurrent maintenance capabilities without service disruption.
+   - Compliance with industry standards for security, uptime, and efficiency.
+
+3. For deploying server infrastructure on our platform, it is required to commit a minimum of 5 bare-metal hosts. These hosts should be of the same or similar specification.
+
+4. Each bare-metal host should be of the following minimum specifications:
+   - CPU: x86-based, Intel or AMD, 16 cores or greater, with VT-x or AMD-V enabled.
+     - Multi-socket motherboards are supported.
+   - RAM: 64 GB or greater.
+   - Storage disk: At least 1 x 2 TB SSD or larger (minimum 1 DWPD endurance rating). Multiple capacity disks are supported.
+     - RAID arrays should not be preconfigured, as these will be dismantled during the onboarding.
+     - While we accept SATA SSD, HDDs are not supported.
+   - NIC: 1 x 1GbE NIC for management and 1 x 10GbE for public traffic
+   - Out-of-band management access: iDRAC/iLO/IPMI out-of-band management interface (for onboarding)
+
+5. A minimum block of 32 (/27) publicly routable IPv4 addresses that can be presented directly to the bare-metal hosts (without firewalling or NAT). <br/>
+
+   ::Alert
+    The quantity of available IPv4 addresses determines the number of virtual machines that can be provisioned, so the more that are available, the more chances there are for the resources to be fully rented.
+    ::
+
+6. VLAN (802.1q) capable infrastructure, with the following VLAN configuration:
+   - 1 x VLAN (Management) presented to each of the host ports as 'tagged native'.
+      - A /24 (or larger) IPv4 private IP address range allocated to this VLAN.
+      - A router on this VLAN to act as a default gateway (outbound NAT access to the internet).
+      - A jump server (Ubuntu Minimal install with no GUI) on this VLAN with inbound SSH access on TCP port 22. If a jump server is not possible, VPN access to this VLAN will suffice.
+      - A DHCP server running on this management VLAN with a small DHCP scope (~20 IPs) within the allocated private IP range.
+      - Hosts IPMI/OOB should be assigned IP addresses on this range.
+   - 1 x VLAN (Public) presented to each of the host ports as 'tagged'.
+      - The Public IPv4 routed address range should be assigned to this VLAN with no NAT or firewall in place.
+   - 1 x VLAN (Fabric transport) presented to each of the host ports as 'tagged':
+      - A /24 (or larger) IPv4 private IP address range allocated to this VLAN.
+
+For a visual representation of the required network setup, see the below diagram:
+
+![A networking diagram of the CUDO Compute supply requirements](/images/docs/images/supply/supply-requirements-networking-diagram.png)
+
+If you have any questions around these requirements, please reach out to support@cudocompute.com

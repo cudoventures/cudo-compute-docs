@@ -27,28 +27,45 @@
             ]
           },
           {
-            "group": "Customization",
-            "pages": [
-              "essentials/settings",
-              "essentials/navigation"
-            ]
-          },
-          {
-            "group": "Writing content",
-            "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
-            ]
-          },
-          {
-            "group": "Tools",
+            "group": "Developer tools",
             "pages": [
               "tools/cli",
               "tools/python-client",
               "tools/dstack",
               "tools/terraform"
+            ]
+          },
+          {
+            "group": "Suppliers",
+            "pages": [
+              "guides/supply/index",
+              "guides/supply/requirements",
+              "guides/supply/pricing"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Guides",
+        "groups": [
+          {
+            "group": "Billing",
+            "icon": "credit-card",
+            "pages": [
+              "guides/billing/index",
+              "guides/billing/create-a-billing-account",
+              "guides/billing/configure-auto-recharge",
+              "guides/billing/top-up-billing-account"
+            ]
+          },
+          {
+            "group": "Bare metal",
+            "icon": "desktop",
+            "pages": [
+              "guides/bare-metal/index",
+              "guides/bare-metal/create-a-bare-metal-machine",
+              "guides/bare-metal/deploy-a-bare-metal-machine-configuration",
+              "guides/bare-metal/connect-to-a-bare-metal-machine"
             ]
           }
         ]

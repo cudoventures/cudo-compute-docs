@@ -1,0 +1,12 @@
+/* Parent .nav-tag-pill that contains a descendant with data-nav-tag="Concept" */
+.nav-tag-pill:has([data-nav-tag="Concept"]) {
+    /* your styles */
+    background-color: #6366f1;
+    border-radius: .25rem;
+}
+/* Parent .nav-tag-pill that contains a descendant with data-nav-tag="Concept" */
+.nav-tag-pill:has([data-nav-tag="Guide"]) {
+    /* your styles */
+    background-color: #10b981;
+    border-radius: .25rem;
+}
