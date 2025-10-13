@@ -22,8 +22,8 @@
           {
             "group": "Getting started",
             "pages": [
-              "mdocs/index",
-              "mdocs/quickstart"
+              "index",
+              "quickstart"
             ]
           },
           {
@@ -95,7 +95,7 @@
       {
         "tab": "Apps",
         "pages": [
-          "apps"
+          "mdocs/apps"
         ]
       },
       {
