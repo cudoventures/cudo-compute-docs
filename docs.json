@@ -105,6 +105,12 @@
         ]
       },
       {
+        "tab": "Changelog",
+        "pages": [
+          "mdocs/changelog"
+        ]
+      },
+      {
         "tab": "Help",
         "pages": [
           "mdocs/help"
