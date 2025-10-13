@@ -22,7 +22,7 @@
           {
             "group": "Getting started",
             "pages": [
-              "mdocs/index",
+              "index",
               "mdocs/quickstart"
             ]
           },
