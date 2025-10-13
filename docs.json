@@ -23,7 +23,8 @@
             "group": "Getting started",
             "pages": [
               "mdocs/index",
-              "mdocs/quickstart"
+              "mdocs/quickstart",
+              "mdocs/changelog"
             ]
           },
           {
@@ -102,12 +103,6 @@
         "tab": "Tutorials",
         "pages": [
           "mdocs/tutorials"
-        ]
-      },
-      {
-        "tab": "Changelog",
-        "pages": [
-          "mdocs/changelog"
         ]
       },
       {
