@@ -80,8 +80,7 @@
               "mdocs/api-reference/authentication",
               "mdocs/api-reference/errors",
               "mdocs/api-reference/rate-limits",
-              "mdocs/api-reference/examples",
-              "mdocs/api-reference/changelog"
+              "mdocs/api-reference/examples"
             ]
           },
           {
@@ -90,6 +89,12 @@
               "source": "/mdocs/api-reference/openapi.json",
               "directory": "mdocs/api-reference"
             }
+          },
+          {
+            "group": "Changelog",
+            "pages": [
+              "mdocs/api-reference/changelog"
+            ]
           }
         ]
       },
