@@ -1,4 +1,9 @@
 {
+  "x-mint": {
+    "mcp": {
+      "enabled": true
+    }
+  },
   "components": {
     "schemas": {
       "Any": {
