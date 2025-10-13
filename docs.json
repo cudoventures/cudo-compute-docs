@@ -22,25 +22,25 @@
           {
             "group": "Getting started",
             "pages": [
-              "index",
-              "quickstart"
+              "mdocs/index",
+              "mdocs/quickstart"
             ]
           },
           {
             "group": "Developer tools",
             "pages": [
-              "tools/cli",
-              "tools/python-client",
-              "tools/dstack",
-              "tools/terraform"
+              "mdocs/tools/cli",
+              "mdocs/tools/python-client",
+              "mdocs/tools/dstack",
+              "mdocs/tools/terraform"
             ]
           },
           {
             "group": "Suppliers",
             "pages": [
-              "guides/supply/index",
-              "guides/supply/requirements",
-              "guides/supply/pricing"
+              "mdocs/guides/supply/index",
+              "mdocs/guides/supply/requirements",
+              "mdocs/guides/supply/pricing"
             ]
           }
         ]
@@ -52,20 +52,20 @@
             "group": "Billing",
             "icon": "credit-card",
             "pages": [
-              "guides/billing/index",
-              "guides/billing/create-a-billing-account",
-              "guides/billing/configure-auto-recharge",
-              "guides/billing/top-up-billing-account"
+              "mdocs/guides/billing/index",
+              "mdocs/guides/billing/create-a-billing-account",
+              "mdocs/guides/billing/configure-auto-recharge",
+              "mdocs/guides/billing/top-up-billing-account"
             ]
           },
           {
             "group": "Bare metal",
             "icon": "desktop",
             "pages": [
-              "guides/bare-metal/index",
-              "guides/bare-metal/create-a-bare-metal-machine",
-              "guides/bare-metal/deploy-a-bare-metal-machine-configuration",
-              "guides/bare-metal/connect-to-a-bare-metal-machine"
+              "mdocs/guides/bare-metal/index",
+              "mdocs/guides/bare-metal/create-a-bare-metal-machine",
+              "mdocs/guides/bare-metal/deploy-a-bare-metal-machine-configuration",
+              "mdocs/guides/bare-metal/connect-to-a-bare-metal-machine"
             ]
           }
         ]
@@ -76,18 +76,18 @@
           {
             "group": "Basics",
             "pages": [
-              "api-reference/introduction",
-              "api-reference/authentication",
-              "api-reference/errors",
-              "api-reference/rate-limits",
-              "api-reference/examples"
+              "mdocs/api-reference/introduction",
+              "mdocs/api-reference/authentication",
+              "mdocs/api-reference/errors",
+              "mdocs/api-reference/rate-limits",
+              "mdocs/api-reference/examples"
             ]
           },
           {
             "group": "Endpoints",
             "openapi": {
-              "source": "/api-reference/openapi.json",
-              "directory": "api-reference"
+              "source": "/mdocs/api-reference/openapi.json",
+              "directory": "mdocs/api-reference"
             }
           }
         ]
@@ -101,13 +101,13 @@
       {
         "tab": "Tutorials",
         "pages": [
-          "tutorials"
+          "mdocs/tutorials"
         ]
       },
       {
         "tab": "Help",
         "pages": [
-          "help"
+          "mdocs/help"
         ]
       }
     ],
