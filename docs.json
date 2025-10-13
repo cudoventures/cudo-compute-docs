@@ -23,8 +23,7 @@
             "group": "Getting started",
             "pages": [
               "mdocs/index",
-              "mdocs/quickstart",
-              "mdocs/changelog"
+              "mdocs/quickstart"
             ]
           },
           {
@@ -81,7 +80,8 @@
               "mdocs/api-reference/authentication",
               "mdocs/api-reference/errors",
               "mdocs/api-reference/rate-limits",
-              "mdocs/api-reference/examples"
+              "mdocs/api-reference/examples",
+              "mdocs/api-reference/changelog"
             ]
           },
           {
