@@ -60,7 +60,7 @@ export const CliToolTable = () => {
 
                 >
                     <Icon icon={getOsImageIcon(bin.id)} size={18} color="transparent" alt={bin.name} />
-                    <span style={{ marginLeft: '.4rem', fontSize: '0.8rem', fontWeight: 'bold' }}>{bin.name}</span>
+                    <span style={{ marginLeft: '.4rem', fontSize: '0.8rem' }}>{bin.name}</span>
                 </Card>
             ))}
         </Columns>

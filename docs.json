@@ -179,8 +179,63 @@
       },
       {
         "tab": "Tutorials",
-        "pages": [
-          "mdocs/tutorials"
+        "groups": [
+          {
+            "group": "Tutorials",
+            "pages": [
+              {
+                "group": "All tutorials",
+                "pages": [
+                  "mdocs/tutorials"
+                ],
+                "hidden": true
+              },
+              {
+                "group": "AI & machine learning",
+                "icon": "brain",
+                "expanded": true,
+                "pages": [
+                  "mdocs/tutorials/mlflow",
+                  "mdocs/tutorials/pytorch",
+                  "mdocs/tutorials/stable-diffusion",
+                  "mdocs/tutorials/jupyter",
+                  "mdocs/tutorials/ollama-and-google-gemma",
+                  "mdocs/tutorials/tensorflow"
+                ]
+              },
+              {
+                "group": "Bioinformatics",
+                "icon": "dna",
+                "expanded": false,
+                "pages": [
+                  "mdocs/tutorials/gromacs",
+                  "mdocs/tutorials/openmpi-cuda",
+                  "mdocs/tutorials/parabricks"
+                ]
+              },
+              {
+                "group": "Rendering & video editing",
+                "icon": "video",
+                "expanded": false,
+                "pages": [
+                  "mdocs/tutorials/blender-cycles-rendering",
+                  "mdocs/tutorials/davinci-resolve",
+                  "mdocs/tutorials/thinkbox-deadline"
+                ]
+              },
+              {
+                "group": "Other",
+                "icon": "cog",
+                "expanded": false,
+                "pages": [
+                  "mdocs/tutorials/how-to-generate-ssh-keys",
+                  "mdocs/tutorials/kong-api-gateway",
+                  "mdocs/tutorials/minio",
+                  "mdocs/tutorials/windows-rdp"
+                ]
+              }
+            ]
+          }
         ]
       },
       {

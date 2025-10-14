@@ -1,0 +1,67 @@
+---
+title: Jupyter Labs
+description: Get started quickly with Jupyter on CUDO Compute using the official Jupyter Docker image.
+---
+
+## Prerequisites
+
+- Create a project
+
+## Jupyter flavours
+
+The fastest way to get started with Jupyter is to use the official Jupyter Docker image. This image contains JupyterLab as well as all of its dependencies. You can find the Docker image on Docker Hub and the source on GitHub.
+
+There are several Jupyter images to choose from, starting with the most minimal:
+
+**jupyter/base-notebook** includes conda and mamba (a faster alternative to conda) but no other scientific Python packages.
+
+**jupyter/minimal-notebook** adds TeX Live, git, vi, nano, tz data and unzip
+
+**jupyter/r-notebook** everything in minimal plus the R interpreter, IRKernel plus additional packges
+
+**jupyter/scipy-notebook** everything in minimal, plus packages including scipy, scikit-learn, pandas, matplotlib
+
+**jupyter/tensorflow-notebook** everything in scipy-notebook plus TensorFlow machine learning framework
+
+**jupyter/datascience-notebook** everything in scipy-notebook and r-notebook plus additional packages for data science
+
+## Creating a Jupyter notebook
+Decide on which jupyter notebook install you wish to use, go to web console and go to the **Create virtual machine form**.
+- Choose a GPU:
+    - A4000 (16GB) and A5000 (24GB) are low cost and suitable for small tasks
+    - L40S, A40 and A6000 are all 48GB cards and similar performance.
+    - A100 and H100 are large memory cards (80GB) with the A100 being slower and cheaper.
+- Memory 16-32GB RAM is suitable for most single GPU setups, if using larger/multiple GPUs it is wise to set system memory to 0.5x or 1x total GPU VRAM
+- CPU 8-16 vCPUs is suitable for single GPU setups, but generally vCPU set to 0.5x Memory works well
+- A suitably large boot disk 100GB + your data set size if significant and **Ubuntu 22.04 + NVIDIA drivers + Docker** OS image
+
+Paste the following command into the start-up scripts box at the bottom of the **Create virtual machine form**:
+
+```shell
+docker run --gpus all --env=GEN_CERT=yes -d -p 8888:8888 -v "${PWD}":/home/jovyan/work jupyter/scipy-notebook:latest start-notebook.sh --NotebookApp.token=my-password
+```
+
+- change the ``my-password`` to your chosen password
+- change scipy-notebook to your chosen notebook from the list above
+
+``--rm`` cleans up after the docker container exists but leave working directory intact.
+
+``--gpus all`` gives the docker container access to all gpus on the virtual machine
+
+``-d`` means run the container in detached mode, so that it will continue to run after the shell is exited
+
+``-p 8888:8888`` maps the internal docker port at 8888 and makes it public on 8888
+
+``-v "${PWD}":/home/jovyan/work`` this maps the internal jupyter working directory to the root home directory of the virtual machine,
+so if the docker container exits your work will remain in the root home directory.
+
+<Note>
+The jupyter notebook has to download before you will be able to see it on the following address. This can take several minutes. For large notebooks with many tools be prepared to wait longer.
+</Note>
+When the virtual machine starts note the IP address then go to ``https://VM-IP-ADDRESS:8888``
+
+You may get a self-signed certificate warning, this is normal. Bypass the warning in your browser and continue.
+
+## Jupyter
+Once inside Jupyter lab in the top left there is an upload files button. For very large files or public datasets using wget from the jupyter terminal or inside the notebook is wise.
+Files can also be downloaded from the project browser on the left side by right-clicking.

@@ -1,0 +1,37 @@
+---
+title: GROMACS
+description: Learn how to utilize GROMACS with the CUDO Compute platform.
+---
+
+GROMACS is a molecular dynamics package mainly designed for simulations of proteins, lipids, and nucleic acids. It was
+originally developed in the Biophysical Chemistry department of University of Groningen, and is now maintained by
+contributors in universities and research centers worldwide
+
+## Prerequisites
+
+- Create a project and [add an SSH key](/mdocs/tutorials/how-to-generate-ssh-keys)
+- Optionally download [CLI tool](/mdocs/cli-tool)
+- Choose a virtual machine with an NVIDIA GPU and Configure
+- Use the **Ubuntu 22.04 + NVIDIA drivers + Docker** image (in CLI tool type `-image ubuntu-nvidia-docker`)
+
+## Running GROMACS on CUDO Compute with Docker
+
+SSH into your virtual machine and run the following commands
+
+To download the sample benchmark
+
+```shell
+DATA_SET=water_GMX50_bare
+wget -c https://ftp.gromacs.org/pub/benchmarks/${DATA_SET}.tar.gz
+tar xf ${DATA_SET}.tar.gz
+cd ./water-cut1.0_GMX50_bare/1536
+```
+
+```shell
+DOCKER="docker run --gpus all -it --rm -v ${PWD}:/host_pwd --workdir /host_pwd nvcr.io/hpc/gromacs:2022.1
+${DOCKER} gmx grompp -f pme.mdp
+${DOCKER} gmx mdrun -ntmpi 4 -nb gpu -pin on -v -noconfout -nsteps 5000 -s -ntomp 10
+```
+
+See the GROMACS [docs here](https://manual.gromacs.org/documentation/)
+

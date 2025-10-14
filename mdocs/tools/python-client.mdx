@@ -16,7 +16,7 @@ Once cudoctl is set up the python client will use the default API key configured
 ## Install via pip
 
 To install the python client via pip run:
-```
+```sh
 pip install cudo-compute
 ```
 
@@ -24,7 +24,7 @@ pip install cudo-compute
 For more information see the [GitHub Repository](https://github.com/cudoVentures/cudo-compute-python-client) Full examples can be found in the ``examples`` directory.
 Below are some simplified examples:
 
-### Create a VM
+### Create a virtual machine
 ```python
 from cudo_compute import cudo_api, Disk, CreateVMBody
 
@@ -40,7 +40,7 @@ api = cudo_api.virtual_machines()
 vm = api.create_vm(cudo_api.project_id(), request)
 ```
 
-### List current VMs
+### List current virtual machines
 ```python
 from cudo_compute import cudo_api
 
@@ -48,7 +48,7 @@ api = cudo_api.virtual_machines()
 vms = api.list_vms(cudo_api.project_id())
 ```
 
-### Terminate a VM
+### Terminate a virtual machine
 ```python
 from cudo_compute import cudo_api
 

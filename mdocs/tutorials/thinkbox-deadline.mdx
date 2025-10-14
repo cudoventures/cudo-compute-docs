@@ -1,0 +1,183 @@
+---
+title: VFX pipelines with Thinkbox Deadline
+description: Learn how to use Thinkbox Deadline, a powerful render management software used to streamline rendering workflows, with CUDO Compute.
+---
+
+Thinkbox Deadline is a powerful render management software used to streamline rendering workflows. It can manage multiple
+projects from different applications and distribute rendering jobs across your hardware. It provides pre-built render
+scripts for more than 80 VFX software, such as AutoCAD, Cinema 4D, Maya, Blender,
+and Houdini. It enables the scheduling of rendering jobs by connecting on-premise hardware with cloud
+computing. Furthermore, it offers virtual cloud workstations management, licensing management,
+and even automatic procurement of hourly licenses for rendering engines.
+
+To set up Thinkbox Deadline, a central server is needed to host the database and a shared file system. After that, a
+client application is installed on workstations and rendering nodes, allowing them to connect and submit rendering jobs seamlessly.
+
+From Deadline 10.1.23 licences are not required. Additionally, Thinkbox began deprecating the Balancer and the Cloud panel,
+as well as the five supporting Cloud Plugins that work with these features
+(Amazon, Azure, Google, OpenStack, and vCenter).
+
+## Quick start guide
+1. Prerequisites
+1. Setting up a Deadline repository on Ubuntu
+1. Setting up a local workstation
+1. Setting up a CPU/GPU rendering node
+
+## Prerequisites
+
+- Create a project and [add an SSH key](/mdocs/tutorials/how-to-generate-ssh-keys)
+- Optionally download [CLI tool](/mdocs/cli-tool)
+
+## Setting up a Deadline repository on Ubuntu
+- Choose a virtual machine add enough storage to hold your input and output media
+- Use the **Ubuntu 22.04 + Docker** image (in CLI tool type `-image ubuntu-2204-docker`)
+
+ssh into the vm and:
+
+```
+wget https://thinkbox-installers.s3.us-west-2.amazonaws.com/Releases/Deadline/10.2/4_10.2.1.0/Deadline-10.2.1.0-linux-installers.tar
+tar -xzf Deadline-10.2.1.0-linux-installers.tar
+```
+
+Perform an unattended installation of deadline:
+
+Note change ``password`` to a secure memorable password, you will need it for the remote server client later
+Also replace the IP address of your server
+```
+./DeadlineRepository-10.2.1.0-linux-x64-installer.run \
+--mode unattended --installmongodb true --certgen_password password --dbhost your-server-ip --dbssl true
+```
+
+Deadline will be installed to the following path ``/opt/Thinkbox/DeadlineRepository10``
+
+In order for Deadline to function correctly, it is essential that the Repository is visible to all connecting machines.
+This particular section outlines the process of sharing the Repository folder and adjusting its permissions to
+guarantee that Clients are granted the required access. Specifically, the Clients must be granted read access
+to both the Repository root and its subdirectories.
+
+```
+adduser --disabled-password --gecos "" deadlineuser
+chown -R deadlineuser:nogroup /opt/Thinkbox/DeadlineRepository10
+chmod -R 500 /opt/Thinkbox/DeadlineRepository10
+cd /opt/Thinkbox/DeadlineRepository10
+chmod -R 700 jobs/ jobsArchived/ reports/
+cd ~
+```
+
+Next you can set up Samba as your network sharing protocol.
+
+```
+apt-get update
+apt-get install samba -y
+```
+
+To enable Samba to share your Deadline repository paste this whole text block into your command line:
+```
+cat <<EOT >> /etc/samba/smb.conf
+[DeadlineRepository]
+path = /opt/Thinkbox/DeadlineRepository10
+writeable = Yes
+guest ok = No
+create mask = 0700
+force create mode = 0700
+force directory mode = 0700
+unix extensions = No
+EOT
+```
+
+Create a user and enter a password
+
+```
+smbpasswd -a deadlineuser
+```
+
+```
+service smbd restart
+```
+
+sudo mount -t cifs -o username=deadlineuser,password=deadline //185.247.206.45/DeadlineRepository /mnt/repo
+
+### Using the file share
+To access your shared directory on the server via your local computer (replace the password):
+Linux
+```
+sudo mkdir /mnt/repo
+sudo mount -t cifs -o username=deadlineuser,password=samba-password //your-server-ip/DeadlineRepository /mnt/repo
+```
+Mac
+```
+mkdir repo
+mount_smbfs //deadlineuser@your-server-ip/DeadlineRepository ./repo
+```
+
+### Installing the remote connection server
+
+The remote connection server allows for secure remote access to the Deadline database, enabling users to monitor and
+manage rendering jobs from outside the local network. It will be used for your local clients to connect to.
+
+```
+cd ~
+mkdir -p /opt/Thinkbox/Deadline10/lib/python3/lib/python3
+touch /opt/Thinkbox/Deadline10/lib/python3/lib/python3/lib
+./DeadlineClient-10.2.1.0-linux-x64-installer.run \
+--mode unattended --enable-components proxyconfig --disable-components webservice_config \
+--repositorydir /opt/Thinkbox/DeadlineRepository10 --dbsslcertificate /opt/Thinkbox/DeadlineDatabase10/certs/Deadline10Client.pfx \
+--dbsslpassword mypassword --enabletls true --launcherdaemon true
+```
+
+## Setting up a local workstation
+To install a client on your local Windows, Mac, or Linux computer follow these instructions:
+https://docs.thinkboxsoftware.com/products/deadline/10.2/1_User%20Manual/manual/quick-install-client.html
+
+Configure your client to use a remote connection (not direct) with the following address ``your-server-ip:4433`` use TLS
+and supply the certificate from the server  ``/opt/Thinkbox/Deadline10/certs/Deadline10RemoteClient.pfx``
+(you will need to copy it to your local computer)
+
+You can copy it to your local device like this (Linux):
+```
+scp root@your-server-ip:/opt/Thinkbox/Deadline10/certs/Deadline10RemoteClient.pfx .
+```
+
+## Setting up a CPU/GPU rendering node
+
+- Choose a virtual machine with an NVIDIA GPU and Configure
+- Use the **Ubuntu 22.04 + NVIDIA drivers + Docker** image (in CLI tool type `-image ubuntu-nvidia-docker`)
+
+Or
+
+- Choose a CPU only virtual machine
+- Use the **Ubuntu 22.04 + Docker** image (in CLI tool type `-image ubuntu-2204-docker`)
+
+On your local computer run the following command to copy the client certificate from the server to the rendering node:
+```
+scp root@your-server-ip:/opt/Thinkbox/Deadline10/certs/Deadline10RemoteClient.pfx .
+scp Deadline10RemoteClient.pfx root@your-worker-ip:/root
+```
+
+SSH into the rendering node, and mount the Samba file share in your worker:
+```
+ssh root@your-worker-ip
+sudo mkdir /mnt/repo
+sudo mount -t cifs -o username=deadlineuser,password=samba-password //your-server-ip/DeadlineRepository /mnt/repo
+```
+
+This fixes a bug in Deadline which prevent unattended mode from completing.
+```
+cd ~
+mkdir -p /opt/Thinkbox/Deadline10/lib/python3/lib/python3
+touch /opt/Thinkbox/Deadline10/lib/python3/lib/python3/lib
+```
+
+Install the deadline worker client:
+```
+wget https://thinkbox-installers.s3.us-west-2.amazonaws.com/Releases/Deadline/10.2/4_10.2.1.0/Deadline-10.2.1.0-linux-installers.tar
+tar -xzf Deadline-10.2.1.0-linux-installers.tar
+./DeadlineClient-10.2.1.0-linux-x64-installer.run \
+--mode unattended
+--repositorydir /mnt/repo --connectiontype remote --proxycertificate Deadline10RemoteClient.pfx
+-- restartstalled true --slavestartup true --launcherdaemon true --proxyrootdir your-server-ip:4433
+```
+
+Deadline should now be running on your rendering node, if you open up the Deadline Monitor on your local computer you
+should be able to see the rendering node and send rendering jobs to it after
+installing your desired rendering engine on it.

@@ -1,0 +1,48 @@
+---
+title: PyTorch
+description: With CUDO Compute you can deploy PyTorch docker containers to the latest NVIDIA Ampere Architecture GPUs.
+---
+
+PyTorch is an open source framework for machine learning. With CUDO Compute you can deploy PyTorch docker containers to the latest NVIDIA Ampere Architecture GPUs. Accelerate training times and reduce training cost.
+CUDO Compute GPU cloud provides images with NVIDIA drivers and Docker preinstalled.
+
+Common uses for PyTorch:
+
+- Deep Neural Networks (DNN)
+- Convolutional Neural Networks (CNN)
+- Conversational AI
+- Recurrent Neural Networks (RNN)
+- Reinforcement Learning
+- Natural Language Processing (NLP)
+
+## Prerequisites
+
+- Create a project and [add an SSH key](/mdocs/tutorials/how-to-generate-ssh-keys)
+- Optionally download [CLI tool](/mdocs/cli-tool)
+- Choose a virtual machine with an NVIDIA GPU and Configure
+- Use the **Ubuntu 22.04 + NVIDIA drivers + Docker** image (in CLI tool type `-image ubuntu-nvidia-docker`)
+
+## Deploy PyTorch to CUDO Compute
+
+SSH into your virtual machine and run the following commands
+
+```shell
+docker run --gpus all -it --rm pytorch/pytorch:latest
+```
+
+Or for the NVIDIA optimized PyTorch container
+
+```shell
+docker run --gpus all -it --rm nvcr.io/nvidia/pytorch:22.08-py3
+```
+
+NGC tags can be found [here](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/pytorch/tags)
+
+At the prompt
+
+```shell
+python
+>>> import torch
+>>> print(torch.cuda.is_available())
+```
+
