@@ -2,103 +2,106 @@
 title: "Introduction"
 description: "Documentation, API reference, tutorials & guides for the CUDO Compute platform."
 ---
+<Note type="success">Welcome - this is the hub for building on CUDO Compute: deploy GPU & CPU capacity, manage storage & networking, automate with our API, and integrate using open tooling.</Note>
 
-## Quick start
+## Get started fast
 
-Get started deploying cloud GPUs in minutes with our [quickstart guide](/mdocs/quickstart).
+<Steps>
+  <Step title="Create an account" icon="user-plus">Sign up or log in at <Link href="https://compute.cudo.org" target="_blank">compute.cudo.org</Link> and complete email verification.</Step>
+  <Step title="Create billing + project" icon="credit-card">Add a billing account, attach a payment method, then create (or select) a project namespace for your resources.</Step>
+  <Step title="Get an API key" icon="key">Generate a key in the web dashboard. Keep it secret; rotate if compromised.</Step>
+  <Step title="Deploy your first resource" icon="rocket">Follow the <Link href="/mdocs/quickstart">Quickstart</Link> to launch a virtual machine or cluster, or jump straight into the <Link href="/mdocs/api-reference/introduction">API reference</Link>.</Step>
+</Steps>
 
-<Card
-  title="Start here"
-  icon="rocket"
-  href="/mdocs/quickstart"
-  horizontal
->
-  Rent and reserve high-performance cloud GPUs on-demand and at scale for AI, machine learning, rendering and more
-</Card>
+<CardGroup cols={3}>
+  <Card title="Quickstart" icon="rocket" href="/mdocs/quickstart">Minimal path from signup to first deployment in minutes.</Card>
+  <Card title="API Keys" icon="key" href="/mdocs/api-reference/authentication">Create & manage keys for automation.</Card>
+  <Card title="CLI (cudoctl)" icon="terminal" href="/mdocs/tools/cli">Configure, script & inspect resources locally.</Card>
+  <Card title="Python Client" icon="python" href="/mdocs/tools/python-client">Programmatic convenience layer over REST endpoints.</Card>
+  <Card title="Terraform" icon="layers" href="https://registry.terraform.io/providers/CudoVentures/cudo/latest/docs" target="_blank">Manage infrastructure as code.</Card>
+  <Card title="dstack" icon="box" href="/mdocs/tools/dstack">Integrate with MLOps / workload orchestration.</Card>
+</CardGroup>
 
-## Why CUDO Compute?
-CUDO Compute is a democratised cloud platform, providing unified access to cloud resources in privately operated data centers around the world.
+## Why CUDO Compute
 
-Our platform allows you to easily deploy virtual machines, whether that be programmatically with our [CLI tool](cli), [REST API](api) or through our [web dashboard](https://compute.cudo.org).
+CUDO Compute is a democratised cloud platform aggregating independently operated data centers to provide globally distributed, high-performance AI infrastructure with transparent economics.
 
-Design a docs site that looks great and empowers your users.
+- High performance GPU & CPU capacity (clusters, bare metal & virtual machines)
+- Consistent API + tooling
+- Pay-as-you-go with project & billing account isolation
+- Infrastructure-as-code & automation friendly (CLI, API, Terraform)
+- Secure networking, images, and fine-grained access controls
 
-## Make it yours
+## Platform capabilities
 
-Design a docs site that looks great and empowers your users.
+<Tabs>
+  <Tab title="Compute" icon="microchip">
+    <CardGroup cols={3}>
+      <Card title="Clusters" icon="cloud" href="/mdocs/guides/clusters/">Pool and scale machines for distributed jobs.</Card>
+      <Card title="Bare Metal" icon="server" href="/mdocs/guides/bare-metal/">Dedicated multi-GPU machines with full control.</Card>
+      <Card title="Virtual Machines" icon="computer" href="/mdocs/guides/virtual-machines/">Flexible, resizable VMs for general workloads.</Card>
+    </CardGroup>
+  </Tab>
+  <Tab title="Storage" icon="database">
+    <CardGroup cols={3}>
+      <Card title="Volumes" icon="hard-drive" href="/mdocs/guides/volumes/">Attach persistent block storage to cluster machines.</Card>
+      <Card title="Disks" icon="hard-drive" href="/mdocs/guides/disks/">Boot & data disks for virtual machines.</Card>
+      <Card title="Object Storage" icon="bucket" href="/mdocs/guides/object-storage/">S3-compatible storage for datasets & artifacts.</Card>
+    </CardGroup>
+  </Tab>
+  <Tab title="Networking & Security" icon="globe">
+    <CardGroup cols={3}>
+      <Card title="Networks" icon="globe" href="/mdocs/guides/networks/">Private networking & IP management.</Card>
+      <Card title="Security Groups" icon="shield" href="/mdocs/guides/security-groups/">Ingress / egress rule enforcement.</Card>
+      <Card title="SSH Keys" icon="key" href="/mdocs/guides/virtual-machines/create-a-virtual-machine#ssh-keys">Secure access to instances.</Card>
+    </CardGroup>
+  </Tab>
+  <Tab title="Images & OS" icon="image">
+    <CardGroup cols={3}>
+      <Card title="Public Images" icon="compact-disc" href="/mdocs/guides/images/">Curated OS & GPU-ready images.</Card>
+      <Card title="Private Images" icon="compact-disc" href="/mdocs/guides/images/create-an-image">Capture and reuse your own.</Card>
+      <Card title="Cloud-init" icon="cog" href="/mdocs/guides/virtual-machines/create-a-virtual-machine#startup-script">Automate first-boot configuration.</Card>
+    </CardGroup>
+  </Tab>
+  <Tab title="Automation & Tooling" icon="code">
+    <CardGroup cols={3}>
+      <Card title="REST API" icon="code" href="/mdocs/api-reference/introduction">Resource-oriented JSON API.</Card>
+      <Card title="CLI" icon="terminal" href="/mdocs/tools/cli">Low-friction scripting & inspection.</Card>
+      <Card title="Python" icon="python" href="/mdocs/tools/python-client">Native client library.</Card>
+      <Card title="dstack" icon="box" href="/mdocs/tools/dstack">MLOps / workload orchestration.</Card>
+      <Card title="Terraform" icon="/mdocs/images/terraform.svg" color="transparent"  href="https://registry.terraform.io/providers/CudoVentures/cudo/latest/docs" target="_blank">Infra as code workflows.</Card>
+      <Card title="OpenAPI" icon="file" href="/mdocs/api-reference/introduction#openapi-specification">The CUDO Compute OpenAPI schema.</Card>
+    </CardGroup>
+  </Tab>
+</Tabs>
 
-<Columns cols={2}>
-  <Card
-    title="Edit locally"
-    icon="pen-to-square"
-    href="/mdocs/development"
-  >
-    Edit your docs locally and preview them in real time.
-  </Card>
-  <Card
-    title="Customize your site"
-    icon="palette"
-    href="/mdocs/essentials/settings"
-  >
-    Customize the design and colors of your site to match your brand.
-  </Card>
-    <Card
-    title="Set up navigation"
-    icon="map"
-    href="/mdocs/essentials/navigation"
-  >
-    Organize your docs to help users find what they need and succeed with your product.
-  </Card>
-  <Card
-    title="API documentation"
-    icon="terminal"
-    href="/mdocs/api-reference/introduction"
-  >
-    Auto-generate API documentation from OpenAPI specifications.
-  </Card>
-</Columns>
+## Choose your path
 
-## Create beautiful pages
+<CardGroup cols={3}>
+  <Card title="Learn the concepts" icon="book" href="/mdocs/api-reference/introduction#key-concepts">Understand core primitives before scaling.</Card>
+  <Card title="Deploy quickly" icon="rocket" href="/mdocs/quickstart">Follow a concise end-to-end walkthrough.</Card>
+  <Card title="Automate" icon="code" href="/mdocs/api-reference/introduction">Integrate via API, CLI, Terraform & SDKs.</Card>
+</CardGroup>
 
-Everything you need to create world-class documentation.
+## Support & resources
 
-<Columns cols={2}>
-  <Card
-    title="Write with MDX"
-    icon="pen-fancy"
-    href="/mdocs/essentials/markdown"
-  >
-    Use MDX to style your docs pages.
-  </Card>
-  <Card
-    title="Code samples"
-    icon="code"
-    href="/mdocs/essentials/code"
-  >
-    Add sample code to demonstrate how to use your product.
-  </Card>
-  <Card
-    title="Images"
-    icon="image"
-    href="/mdocs/essentials/images"
-  >
-    Display images and other media.
-  </Card>
-  <Card
-    title="Reusable snippets"
-    icon="recycle"
-    href="/mdocs/essentials/reusable-snippets"
-  >
-    Write once and reuse across your docs.
-  </Card>
-</Columns>
+<AccordionGroup>
+  <Accordion title="Help center" icon="life-ring">Browse common questions & troubleshooting in <Link href="/mdocs/help/">Help</Link>.</Accordion>
+  <Accordion title="Report an issue" icon="warning">Open a ticket via the console or email support@cudocompute.com with context (resource IDs, timestamps, error codes).</Accordion>
+  <Accordion title="Request features" icon="sparkles">Let us know what would accelerate your workloads-reach out through support channels.</Accordion>
+  <Accordion title="Status & availability" icon="cloud">Platform & data center status dashboard (coming soon).</Accordion>
+</AccordionGroup>
 
-## Need inspiration?
+<Note type="info">Have feedback? A confusing step? Missing tutorial? Reach out - your input directly shapes the roadmap.</Note>
 
-<Card
-  title="See complete examples"
-  icon="stars"
-  href="https://mintlify.com/customers"
->
-  Browse our showcase of exceptional documentation sites.
-</Card>
+## Next steps
+
+<Checklist>
+  <CheckItem>Complete the <Link href="/mdocs/quickstart">Quickstart</Link></CheckItem>
+  <CheckItem>Create / rotate an <Link href="/mdocs/api-reference/authentication">API key</Link></CheckItem>
+  <CheckItem>Deploy a <Link href="/mdocs/guides/virtual-machines/create-a-virtual-machine">virtual machine</Link> or <Link href="/mdocs/guides/bare-metal/create-a-bare-metal-machine">bare metal machine</Link></CheckItem>
+  <CheckItem>Automate with the <Link href="/mdocs/tools/cli">CLI</Link> or <Link href="/mdocs/tools/python-client">Python client</Link></CheckItem>
+  <CheckItem>Track changes in the <Link href="/mdocs/api-reference/changelog">Changelog</Link></CheckItem>
+</Checklist>
+
+<Tip>Bookmark this page for a curated map of the most important docs as we expand.</Tip>

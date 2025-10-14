@@ -23,7 +23,7 @@ Your API key uniquely identifies you and inherits the permissions of your user o
 
 You can create API keys in two ways:
 
-1. Via the CUDO web console (recommended for most users)
+1. Via the [CUDO Compute web console](https://compute.cudo.org/profile/api-keys?create=api-key) (recommended for most users)
 2. Programmatically with the `POST /v1/api-keys` endpoint
 
 <Tabs>
@@ -171,7 +171,7 @@ Then reference it in tooling and scripts instead of hardcoding.
 
 ## Rate limiting & retries
 
-If you receive HTTP 429, implement exponential backoff (e.g., wait 1s, 2s, 4s, 8s...) and respect any `Retry-After` header (if present). Do not continuously retry invalid keys—fix the credential instead.
+If you receive HTTP 429, implement exponential backoff (e.g., wait 1s, 2s, 4s, 8s...) and respect any `Retry-After` header (if present). Do not continuously retry invalid keys-fix the credential instead.
 
 ## Troubleshooting
 
@@ -189,5 +189,5 @@ Currently the API uses a single global bearer scheme named `bearerAuth` with hea
 
 ## Next steps
 
-You're authenticated—explore the <Link href="/mdocs/api-reference/introduction">API Reference</Link> or jump into building clusters, machines, and more.
+You're authenticated-explore the <Link href="/mdocs/api-reference/introduction">API Reference</Link> or jump into building clusters, machines, and more.
 

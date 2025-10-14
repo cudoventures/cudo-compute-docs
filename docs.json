@@ -86,7 +86,7 @@
           },
           {
             "group": "Bare metal",
-            "icon": "desktop",
+            "icon": "server",
             "pages": [
               "mdocs/guides/bare-metal/index",
               "mdocs/guides/bare-metal/create-a-bare-metal-machine",
@@ -152,7 +152,7 @@
           },
           {
             "group": "Virtual machines",
-            "icon": "microchip",
+            "icon": "computer",
             "pages": [
               "mdocs/guides/virtual-machines/index",
               "mdocs/guides/virtual-machines/create-a-virtual-machine",

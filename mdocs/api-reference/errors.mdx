@@ -5,7 +5,7 @@ description: How CUDO Compute surfaces API errors using the Google API Improveme
 
 # Errors
 
-The CUDO Compute API uses the [Google AIP-193 Error Model](https://google.aip.dev/193) for all error responses. This provides a consistent, machine‑readable structure while keeping messages helpful for humans.
+The CUDO Compute API uses the [Google AIP-193 Error Model](https://google.aip.dev/193) for all error responses. This provides a consistent, machine-readable structure while keeping messages helpful for humans.
 
 Every non-2xx response body will be a single JSON object shaped like:
 
@@ -45,7 +45,7 @@ The `status` string is the canonical error code name (e.g. INVALID_ARGUMENT). Th
 |-------|------|----------|-------------|
 | `code` | number | Always | HTTP status code (e.g. 404). Mirrors the response status. |
 | `status` | string | Always | Canonical error code (AIP-193). Upper snake case. |
-| `message` | string | Always | End‑user readable summary (English, sentence form). Not for programmatic parsing. |
+| `message` | string | Always | End-user readable summary (English, sentence form). Not for programmatic parsing. |
 | `details` | array&lt;object&gt; | Sometimes | Zero or more structured detail objects (typed via `@type`). |
 
 
@@ -59,7 +59,7 @@ Each element in `details` is a typed envelope with an `@type` URL identifying th
 | `type.googleapis.com/google.rpc.ErrorInfo` | Domain + reason + metadata (actionable metadata). |
 | `type.googleapis.com/google.rpc.RetryInfo` | Backoff hints when a retry is appropriate. |
 | `type.googleapis.com/google.rpc.QuotaFailure` | Which quota bucket was exceeded. |
-| `type.googleapis.com/google.rpc.DebugInfo` | Low‑level debugging info (rarely returned in production). |
+| `type.googleapis.com/google.rpc.DebugInfo` | Low-level debugging info (rarely returned in production). |
 
 If you need richer structured data for automation, always prefer reading `details` over parsing `message`.
 
@@ -246,7 +246,7 @@ We recommend capped exponential backoff (e.g. base=500ms, multiplier=1.6, max=30
 
 ### Do not parse human readable messages
 
-<Danger>Never parse `message` strings—use `status`, structured `details`, and (when present) `ErrorInfo.metadata` for automation.</Danger>
+<Danger>Never parse `message` strings-use `status`, structured `details`, and (when present) `ErrorInfo.metadata` for automation.</Danger>
 {/* (Custom proprietary detail type examples removed to keep this page focused on standard Google error detail types.) */}
 
 ## Versioning & stability
@@ -275,7 +275,7 @@ During development you can deliberately trigger certain errors:
 		Some client libraries only inspect JSON. Including `code` simplifies uniform handling across transports.
 	</Accordion>
 	<Accordion title="Will you add localization?">
-		Not at this time. `message` strings remain English to keep support references unambiguous. Use structured `details` for end‑user localization.
+		Not at this time. `message` strings remain English to keep support references unambiguous. Use structured `details` for end-user localization.
 	</Accordion>
 	<Accordion title="Can I rely on ordering within details?">
 		No. Treat `details` as an unordered set keyed by `@type`.

@@ -9,7 +9,7 @@ description: 'Overview of the CUDO Compute REST API: concepts, authentication, v
 
 ## Overview
 
-The CUDO Compute API is a versioned, resource‑oriented HTTPS REST API. It lets you:
+The CUDO Compute API is a versioned, resource-oriented HTTPS REST API. It lets you:
 
 <Checklist>
   <CheckItem>Provision and manage <Link href="/mdocs/guides/clusters/0.index">clusters</Link> (GPU & CPU capacity)</CheckItem>
@@ -31,12 +31,12 @@ All endpoints speak JSON over HTTPS and are designed for automation, infrastruct
     Bearer API keys in Authorization header
   </Card>
   <Card title="Errors" icon="warning" href="/mdocs/api-reference/errors">
-    AIP‑193 structured error model
+    AIP-193 structured error model
   </Card>
 </CardGroup>
 
 <a id="base-url-versioning" />
-## Base URL & Versioning
+## Base URL & versioning
 
 All current endpoints are served from:
 
@@ -44,7 +44,7 @@ All current endpoints are served from:
 https://rest.compute.cudo.org/v1/
 ```
 
-The `v1` segment denotes the stable API surface. Additive, backwards‑compatible changes (new fields, endpoints) may occur without prior notice. Any breaking changes will be announced in the <Link href="/mdocs/api-reference/changelog">Changelog</Link> with advanced notice.
+The `v1` segment denotes the stable API surface. Additive, backwards-compatible changes (new fields, endpoints) may occur without prior notice. Any breaking changes will be announced in the <Link href="/mdocs/api-reference/changelog">Changelog</Link> with advanced notice.
 
 ## Authentication
 
@@ -71,7 +71,7 @@ See the dedicated <Link href="/mdocs/api-reference/authentication">Authenticatio
 | Image | Virtual machine boot template (OS and any customisations you have made). |
 | Networks & security groups | Isolation and traffic control primitives. |
 
-## Example: List billing accounts
+## Example: list billing accounts
 
 <Tabs>
   <Tab title="cURL">
@@ -124,15 +124,15 @@ Typical (truncated) successful JSON response:
 ]
 ```
 
-## Errors & Status Codes
+## Errors & status codes
 
-All non‑2xx responses use a structured envelope following <Link href="https://google.aip.dev/193" target="_blank">AIP‑193</Link>. See <Link href="/mdocs/api-reference/errors">Errors</Link> for field semantics and canonical code mapping. Handle retryable codes (`UNAVAILABLE`, `RESOURCE_EXHAUSTED`, `DEADLINE_EXCEEDED`, `ABORTED`) with exponential backoff + jitter. Do not parse human‑readable `message` strings—use `status`, `code`, and `details`.
+All non-2xx responses use a structured envelope following <Link href="https://google.aip.dev/193" target="_blank">AIP-193</Link>. See <Link href="/mdocs/api-reference/errors">Errors</Link> for field semantics and canonical code mapping. Handle retryable codes (`UNAVAILABLE`, `RESOURCE_EXHAUSTED`, `DEADLINE_EXCEEDED`, `ABORTED`) with exponential backoff + jitter. Do not parse human-readable `message` strings-use `status`, `code`, and `details`.
 
-## Rate Limiting
+## Rate limiting
 
-If you exceed per‑key or per‑resource limits you receive `429 RESOURCE_EXHAUSTED` (sometimes with a `RetryInfo` detail or `Retry-After` header). Implement capped exponential backoff (e.g. 0.5s, 0.8s, 1.3s ... up to 30s) and avoid tight retry loops.
+If you exceed per-key or per-resource limits you receive `429 RESOURCE_EXHAUSTED` (sometimes with a `RetryInfo` detail or `Retry-After` header). Implement capped exponential backoff (e.g. 0.5s, 0.8s, 1.3s ... up to 30s) and avoid tight retry loops.
 
-## Tooling & Integrations
+## Tooling & integrations
 
 <CardGroup cols={3}>
   <Card title="cudoctl CLI" icon="terminal" href="/mdocs/tools/cli">Script resource lifecycle operations quickly.</Card>
@@ -142,17 +142,17 @@ If you exceed per‑key or per‑resource limits you receive `429 RESOURCE_EXHAU
 
 Additional automation tooling examples (dstack, Terraform, Python) are covered in the <Link href="/mdocs/tools/cli">Tools</Link> section.
 
-## OpenAPI Specification
+## OpenAPI specification
 
-The full machine‑readable contract (parameters, schemas, auth) is published as an OpenAPI 3 document:
+The full machine-readable contract (parameters, schemas, auth) is published as an OpenAPI 3 document:
 
 <Card title="OpenAPI (v1)" icon="file" href="/assets/openapi.json">
   Browse the specification file
 </Card>
 
-You can use it to generate strongly‑typed clients, validate requests, or explore interactively.
+You can use it to generate strongly-typed clients, validate requests, or explore interactively.
 
-## Next Steps
+## Next steps
 
 <AccordionGroup>
   <Accordion title="Get an API key" icon="key" defaultOpen>
