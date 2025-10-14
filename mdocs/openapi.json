@@ -11143,9 +11143,6 @@
   "servers": [
     {
       "url": "https://rest.compute.cudo.org"
-    },
-    {
-      "url": "http://localhost:8080"
     }
   ],
   "tags": [
