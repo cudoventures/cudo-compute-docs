@@ -13,6 +13,10 @@
       "dark": "#09090B"
     }
   },
+  "appearance": {
+    "default": "dark",
+    "strict": true
+  },
   "favicon": "/favicon.svg",
   "navigation": {
     "tabs": [
