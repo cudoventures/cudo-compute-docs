@@ -184,7 +184,7 @@
             "group": "Tutorials",
             "pages": [
               {
-                "group": "All tutorials",
+                "group": "Tutorials",
                 "pages": [
                   "mdocs/tutorials"
                 ],
@@ -193,7 +193,6 @@
               {
                 "group": "AI & machine learning",
                 "icon": "brain",
-                "expanded": true,
                 "pages": [
                   "mdocs/tutorials/mlflow",
                   "mdocs/tutorials/pytorch",
@@ -206,7 +205,6 @@
               {
                 "group": "Bioinformatics",
                 "icon": "dna",
-                "expanded": false,
                 "pages": [
                   "mdocs/tutorials/gromacs",
                   "mdocs/tutorials/openmpi-cuda",
@@ -216,7 +214,6 @@
               {
                 "group": "Rendering & video editing",
                 "icon": "video",
-                "expanded": false,
                 "pages": [
                   "mdocs/tutorials/blender-cycles-rendering",
                   "mdocs/tutorials/davinci-resolve",
@@ -226,7 +223,6 @@
               {
                 "group": "Other",
                 "icon": "cog",
-                "expanded": false,
                 "pages": [
                   "mdocs/tutorials/how-to-generate-ssh-keys",
                   "mdocs/tutorials/kong-api-gateway",
