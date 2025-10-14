@@ -1,33 +1,173 @@
 ---
 title: 'Introduction'
-description: 'Example section for showcasing API endpoints'
+description: 'Overview of the CUDO Compute REST API: concepts, authentication, versioning, and example requests.'
 ---
 
-<Note>
-  If you're not looking to build API reference documentation, you can delete
-  this section by removing the api-reference folder.
-</Note>
+<Tip>
+  Welcome to the CUDO Compute API reference. Use these endpoints to provision and manage compute, storage, networking and supporting resources programmatically.
+</Tip>
 
-## Welcome
+## Overview
 
-There are two ways to build API documentation: [OpenAPI](https://mintlify.com/docs/api-playground/openapi/setup) and [MDX components](https://mintlify.com/docs/api-playground/mdx/configuration). For the starter kit, we are using the following OpenAPI specification.
+The CUDO Compute API is a versioned, resource‑oriented HTTPS REST API. It lets you:
 
-<Card
-  title="Plant Store Endpoints"
-  icon="leaf"
-  href="https://github.com/mintlify/starter/blob/main/api-reference/openapi.json"
->
-  View the OpenAPI specification file
-</Card>
+<Checklist>
+  <CheckItem>Provision and manage <Link href="/mdocs/guides/clusters/0.index">clusters</Link> (GPU & CPU capacity)</CheckItem>
+  <CheckItem>Create, start, stop and resize <Link href="/mdocs/guides/virtual-machines/0.index">virtual machines</Link> & bare metal machines</CheckItem>
+  <CheckItem>Attach, detach, and resize <Link href="/mdocs/guides/volumes/0.index">volumes</Link> and manage <Link href="/mdocs/guides/disks/0.index">disks</Link></CheckItem>
+  <CheckItem>Manage <Link href="/mdocs/guides/networks/0.index">networks</Link>, security groups, and ingress controls</CheckItem>
+  <CheckItem>Import, list and manage machine <Link href="/mdocs/guides/images/0.index">images</Link></CheckItem>
+  <CheckItem>Work with <Link href="/mdocs/guides/object-storage/0.index">object storage</Link></CheckItem>
+  <CheckItem>Handle billing accounts, usage and quotas</CheckItem>
+</Checklist>
+
+All endpoints speak JSON over HTTPS and are designed for automation, infrastructure-as-code, and integration into internal tooling.
+
+<CardGroup cols={3}>
+  <Card title="Base URL" icon="globe" href="#base-url-versioning">
+    rest.compute.cudo.org
+  </Card>
+  <Card title="Auth" icon="key" href="/mdocs/api-reference/authentication">
+    Bearer API keys in Authorization header
+  </Card>
+  <Card title="Errors" icon="warning" href="/mdocs/api-reference/errors">
+    AIP‑193 structured error model
+  </Card>
+</CardGroup>
+
+<a id="base-url-versioning" />
+## Base URL & Versioning
+
+All current endpoints are served from:
+
+```text
+https://rest.compute.cudo.org/v1/
+```
+
+The `v1` segment denotes the stable API surface. Additive, backwards‑compatible changes (new fields, endpoints) may occur without prior notice. Any breaking changes will be announced in the <Link href="/mdocs/api-reference/changelog">Changelog</Link> with advanced notice.
 
 ## Authentication
 
-All API endpoints are authenticated using Bearer tokens and picked up from the specification file.
+Authenticate every request with a Bearer API key:
+
+```http
+Authorization: Bearer <your_api_key>
+```
+
+See the dedicated <Link href="/mdocs/api-reference/authentication">Authentication</Link> page for creating and rotating keys, best practices, and troubleshooting. Requests without a valid key return `401 UNAUTHENTICATED`.
+
+## Key concepts
+
+| Concept | Description |
+|---------|-------------|
+| Project | Logical namespace where you create resources (machines, clusters, volumes). |
+| Billing account | Funding source; required before provisioning capacity. |
+| Data center | Physical location for capacity (select for latency, compliance and hardware availability). |
+| Cluster | Scalable pool of machines you manage as a unit. |
+| Volume | Persistent block storage attachable to cluster machines. |
+| Machine | A bare metal server. |
+| Virtual Machine | A virtualized server instance. |
+| Disk | Persistent block storage attachable to virtual machines. |
+| Image | Virtual machine boot template (OS and any customisations you have made). |
+| Networks & security groups | Isolation and traffic control primitives. |
+
+## Example: List billing accounts
+
+<Tabs>
+  <Tab title="cURL">
+
+```bash
+curl -s \
+  -H "Authorization: Bearer $CUDO_API_KEY" \
+  https://api.cudocompute.com/v1/billing-accounts | jq '.'
+```
+  </Tab>
+  <Tab title="Python">
+
+```python
+import os, requests
+
+BASE_URL = "https://api.cudocompute.com/v1"
+resp = requests.get(
+    f"{BASE_URL}/billing-accounts",
+    headers={"Authorization": f"Bearer {os.environ['CUDO_API_KEY']}"},
+    timeout=30,
+)
+resp.raise_for_status()
+print(resp.json())
+```
+  </Tab>
+  <Tab title="JavaScript (fetch)">
+
+```js
+const BASE_URL = 'https://api.cudocompute.com/v1';
+async function listBillingAccounts() {
+  const res = await fetch(`${BASE_URL}/billing-accounts`, {
+    headers: { 'Authorization': `Bearer ${process.env.CUDO_API_KEY}` }
+  });
+  if (!res.ok) throw new Error(res.status + ' ' + await res.text());
+  console.log(await res.json());
+}
+listBillingAccounts();
+```
+  </Tab>
+</Tabs>
+
+Typical (truncated) successful JSON response:
 
 ```json
-"security": [
+[
   {
-    "bearerAuth": []
+    "id": "1234567890",
+    "name": "Primary Account"
   }
 ]
 ```
+
+## Errors & Status Codes
+
+All non‑2xx responses use a structured envelope following <Link href="https://google.aip.dev/193" target="_blank">AIP‑193</Link>. See <Link href="/mdocs/api-reference/errors">Errors</Link> for field semantics and canonical code mapping. Handle retryable codes (`UNAVAILABLE`, `RESOURCE_EXHAUSTED`, `DEADLINE_EXCEEDED`, `ABORTED`) with exponential backoff + jitter. Do not parse human‑readable `message` strings—use `status`, `code`, and `details`.
+
+## Rate Limiting
+
+If you exceed per‑key or per‑resource limits you receive `429 RESOURCE_EXHAUSTED` (sometimes with a `RetryInfo` detail or `Retry-After` header). Implement capped exponential backoff (e.g. 0.5s, 0.8s, 1.3s ... up to 30s) and avoid tight retry loops.
+
+## Tooling & Integrations
+
+<CardGroup cols={3}>
+  <Card title="cudoctl CLI" icon="terminal" href="/mdocs/tools/cli">Script resource lifecycle operations quickly.</Card>
+  <Card title="Python Client" icon="python" href="/mdocs/tools/python-client">Programmatic convenience wrapper.</Card>
+  <Card title="Terraform" icon="layers" href="https://registry.terraform.io/providers/CudoVentures/cudo/latest/docs">Manage infra as code.</Card>
+</CardGroup>
+
+Additional automation tooling examples (dstack, Terraform, Python) are covered in the <Link href="/mdocs/tools/cli">Tools</Link> section.
+
+## OpenAPI Specification
+
+The full machine‑readable contract (parameters, schemas, auth) is published as an OpenAPI 3 document:
+
+<Card title="OpenAPI (v1)" icon="file" href="/assets/openapi.json">
+  Browse the specification file
+</Card>
+
+You can use it to generate strongly‑typed clients, validate requests, or explore interactively.
+
+## Next Steps
+
+<AccordionGroup>
+  <Accordion title="Get an API key" icon="key" defaultOpen>
+    Visit the <Link href="/mdocs/api-reference/authentication">Authentication</Link> guide to create your first key.
+  </Accordion>
+  <Accordion title="Create infrastructure" icon="rocket">
+    Follow the <Link href="/mdocs/quickstart">Quickstart</Link> then deploy your first cluster or virtual machine.
+  </Accordion>
+  <Accordion title="Handle errors gracefully" icon="warning">
+    Review <Link href="/mdocs/api-reference/errors">Errors</Link> and implement structured handling + retries.
+  </Accordion>
+  <Accordion title="Track changes" icon="history">
+    Monitor new endpoints & updates in the <Link href="/mdocs/api-reference/changelog">Changelog</Link>.
+  </Accordion>
+</AccordionGroup>
+
+<Note type="success">Need more examples? Let us know what languages & SDKs you want next.</Note>
+

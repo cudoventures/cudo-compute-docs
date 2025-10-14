@@ -1,0 +1,26 @@
+---
+title: Create a network
+titleDir: Networks
+description: Create a private network on CUDO Compute
+tag: Guide
+---
+
+Navigate to the project you wish to create a network within and open **Networks**. Click **Create a network** and complete the form:
+
+- Network ID - unique name
+- Data center - deployment location
+- Address range - CIDR range for private IP allocation (RFC1918)
+
+Click **Create network** to deploy.
+
+### Address ranges
+
+Valid private ranges per RFC 1918:
+
+- 10.0.0.0/8 (10.0.0.0 - 10.255.255.255)
+- 172.16.0.0/12 (172.16.0.0 - 172.31.255.255)
+- 192.168.0.0/16 (192.168.0.0 - 192.168.255.255)
+
+### Deploy a virtual machine to your network
+
+When creating a virtual machine choose the network in the Network step.

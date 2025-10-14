@@ -1,0 +1,54 @@
+---
+title: Command line
+titleDir: Object storage
+description: Interact with object storage using s3cmd & s5cmd
+tag: Guide
+---
+
+When working with S3-compatible object storage two popular CLI tools are s3cmd and s5cmd.
+
+- s3cmd - mature, feature rich
+- s5cmd - high performance & parallel operations
+
+## s3cmd installation
+
+Install with pip:
+
+```bash
+pip install s3cmd
+```
+
+## Configure s3cmd
+
+You will need an object storage user and a bucket. Gather:
+
+- Access & secret key: Project > Object storage > Users > select user
+- Endpoint: Project > Object storage > Buckets > select bucket (remove https:// prefix)
+
+Run interactive setup:
+
+```bash
+s3cmd --configure
+```
+
+Follow prompts (use provided endpoint, test, then save). Your config is stored at `~/.s3cfg`.
+
+List buckets:
+
+```bash
+s3cmd ls
+```
+
+Upload a file:
+
+```bash
+s3cmd put local-file.txt s3://your-bucket-name/
+```
+
+Delete a file:
+
+```bash
+s3cmd del s3://your-bucket-name/file.txt
+```
+
+More: https://s3tools.org/usage

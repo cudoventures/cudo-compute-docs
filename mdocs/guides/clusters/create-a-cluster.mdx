@@ -1,0 +1,40 @@
+---
+title: Create a cluster
+titleDir: Clusters
+description: Learn how to create and configure a cluster on CUDO Compute
+tag: Guide
+---
+
+Navigate to the project you wish to create a cluster in. Then, navigate to "Clusters" from the side navigation and click **Create cluster** or [follow this link](https://compute.cudo.org/?create=cluster).
+
+## Configuration
+
+### Name
+Enter a name for your cluster. This will be used to identify your cluster in the clusters list.
+
+<Note>
+Your cluster name must be 1 to 30 characters in length, can only contain lowercase letters, numbers, and hyphens, must start with a letter, cannot end with a hyphen and cannot be in use.
+</Note>
+
+### Data center
+By default, your cluster will be deployed to the cheapest data center available depending on your configuration. If you have a specific data center you would like to deploy to, you can select it from the Data center options.
+
+### Machine type
+Configure the machine type you would like to deploy. The specifications of the machines will be shown as a list; selecting one shows you the specifications in the summary on the right-hand side.
+
+We recommend selecting a machine type that suits your workload (for example one with Infiniband if you need high-speed networking between cluster machines). If you are unsure, please contact us.
+
+### SSH keys
+Configure the SSH keys you would like to be deployed to your cluster machines. Options:
+
+- Include all project collaborator keys
+- Include only my keys
+- Use custom keys (add any specific keys for these machines)
+
+### Start script
+Provide a start script that will run on the first boot of each cluster machine (install software, configure services, perform setup tasks, etc.).
+
+### Summary
+On the right-hand side, you can see a summary of your cluster with estimated costs prior to creating it. Use the hourly/monthly toggle to show estimated pricing for those lengths of time.
+
+Once you are happy, click **Create cluster** and your cluster will be built and deployed.

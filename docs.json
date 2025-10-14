@@ -46,6 +46,32 @@
         ]
       },
       {
+        "tab": "API reference",
+        "groups": [
+          {
+            "group": "Basics",
+            "pages": [
+              "mdocs/api-reference/introduction",
+              "mdocs/api-reference/authentication",
+              "mdocs/api-reference/errors"
+            ]
+          },
+          {
+            "group": "Endpoints",
+            "openapi": {
+              "source": "mdocs/openapi.json",
+              "directory": "mdocs/api-reference"
+            }
+          },
+          {
+            "group": "Changelog",
+            "pages": [
+              "mdocs/api-reference/changelog"
+            ]
+          }
+        ]
+      },
+      {
         "tab": "Guides",
         "groups": [
           {
@@ -67,41 +93,84 @@
               "mdocs/guides/bare-metal/deploy-a-bare-metal-machine-configuration",
               "mdocs/guides/bare-metal/connect-to-a-bare-metal-machine"
             ]
-          }
-        ]
-      },
-      {
-        "tab": "API reference",
-        "groups": [
+          },
           {
-            "group": "Basics",
+            "group": "Clusters",
+            "icon": "cloud",
             "pages": [
-              "mdocs/api-reference/introduction",
-              "mdocs/api-reference/authentication",
-              "mdocs/api-reference/errors",
-              "mdocs/api-reference/rate-limits",
-              "mdocs/api-reference/examples"
+              "mdocs/guides/clusters/index",
+              "mdocs/guides/clusters/create-a-cluster",
+              "mdocs/guides/clusters/manage-a-cluster",
+              "mdocs/guides/clusters/manage-cluster-machines"
             ]
           },
           {
-            "group": "Endpoints",
-            "openapi": {
-              "source": "/mdocs/api-reference/openapi.json",
-              "directory": "mdocs/api-reference"
-            }
+            "group": "Disks",
+            "icon": "hard-drive",
+            "pages": [
+              "mdocs/guides/disks/index",
+              "mdocs/guides/disks/create-a-disk",
+              "mdocs/guides/disks/manage-a-disk"
+            ]
           },
           {
-            "group": "Changelog",
+            "group": "Images",
+            "icon": "compact-disc",
             "pages": [
-              "mdocs/api-reference/changelog"
+              "mdocs/guides/images/index",
+              "mdocs/guides/images/create-an-image",
+              "mdocs/guides/images/manage-images"
+            ]
+          },
+          {
+            "group": "Networks",
+            "icon": "globe",
+            "pages": [
+              "mdocs/guides/networks/index",
+              "mdocs/guides/networks/create-a-network",
+              "mdocs/guides/networks/manage-a-network"
+            ]
+          },
+          {
+            "group": "Object storage",
+            "icon": "bucket",
+            "pages": [
+              "mdocs/guides/object-storage/index",
+              "mdocs/guides/object-storage/create-a-user",
+              "mdocs/guides/object-storage/create-a-bucket",
+              "mdocs/guides/object-storage/command-line"
+            ]
+          },
+          {
+            "group": "Security groups",
+            "icon": "shield-check",
+            "pages": [
+              "mdocs/guides/security-groups/index",
+              "mdocs/guides/security-groups/create-a-security-group",
+              "mdocs/guides/security-groups/managing-rules"
+            ]
+          },
+          {
+            "group": "Virtual machines",
+            "icon": "microchip",
+            "pages": [
+              "mdocs/guides/virtual-machines/index",
+              "mdocs/guides/virtual-machines/create-a-virtual-machine",
+              "mdocs/guides/virtual-machines/connect-to-a-virtual-machine",
+              "mdocs/guides/virtual-machines/manage-a-virtual-machine",
+              "mdocs/guides/virtual-machines/resize-a-virtual-machine"
+            ]
+          },
+          {
+            "group": "Volumes",
+            "icon": "hard-drive",
+            "pages": [
+              "mdocs/guides/volumes/index",
+              "mdocs/guides/volumes/create-a-volume",
+              "mdocs/guides/volumes/attach-a-volume-to-a-cluster-machine",
+              "mdocs/guides/volumes/manage-a-volume"
             ]
           }
-        ]
-      },
-      {
-        "tab": "Apps",
-        "pages": [
-          "mdocs/apps"
         ]
       },
       {

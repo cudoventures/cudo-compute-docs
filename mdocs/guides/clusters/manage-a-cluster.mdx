@@ -1,0 +1,34 @@
+---
+title: Manage a cluster
+titleDir: Clusters
+description: How to manage clusters on CUDO Compute
+tag: Guide
+---
+
+Clicking a cluster ID from the clusters list shows the cluster details page.
+
+Use the quick buttons at the top-right of the page to:
+
+- Resize a cluster
+- Delete a cluster
+
+## Resize a cluster
+
+From the clusters list choose **⋮ > Resize cluster** or from a cluster details page choose the **Resize** quick action.
+
+### Machine count
+Enter the new number of machines and click **Resize cluster**. Machines will be added or removed to reach the desired count.
+
+<Note>
+Resizing will remove arbitrary machines when reducing the count. To delete a specific machine instead, see Manage cluster machines.
+</Note>
+
+### SSH keys
+Choose which SSH keys to deploy (all collaborator keys, only your keys, or custom keys).
+
+### Start script
+Update the start script that will run on first boot for any new machines.
+
+## Delete a cluster
+
+From the clusters list choose **⋮ > Delete cluster** or from the cluster details page use the **Delete** quick action. Confirm the deletion to permanently remove the cluster and its machines.

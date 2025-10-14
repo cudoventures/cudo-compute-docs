@@ -1,0 +1,49 @@
+---
+title: Create a virtual machine
+titleDir: Virtual machines
+description: Learn how to create and configure a virtual machine on CUDO Compute
+tag: Guide
+---
+
+Navigate to the project where you want to create a VM. Click **Create a virtual machine** on the overview page, open **Virtual machines** and click the button there, or follow the direct link.
+
+## Configuration
+
+### Name
+Enter a name to identify the VM.
+
+<Note>
+Name must be 1-30 chars, lowercase letters, numbers and hyphens only, start with a letter, not end with a hyphen, and be unique.
+</Note>
+
+### Data center
+Select a data center. Unavailable combinations (e.g. spec or image mismatch) are disabled.
+
+### Specifications
+Select GPU model, GPU count, vCPUs and memory.
+
+### Boot disk
+Choose disk size and image type:
+
+- Public image - OS images available in all data centers
+- Private image - must be in the same data center as the VM
+
+### Network
+Default is public network with a public IP. Optionally add private networks (must be same data center). Optionally also include a public IP when using a private network.
+
+### Security groups
+Add security groups to control traffic. Without any security groups all traffic is allowed.
+
+<Note variant="warning">Restrict traffic by defining security groups and rules.</Note>
+
+### SSH keys
+Choose which SSH keys to deploy (all collaborator keys, only yours, or custom keys).
+
+### Root / administrator password
+Set (required for Windows images).
+
+### Startup script
+Optional commands run on successful deployment.
+
+### Summary
+Review the cost estimate (hourly/monthly). Click **Create virtual machine** to deploy.

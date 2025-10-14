@@ -6,8 +6,9 @@
     "description": "Documentation package",
     "license": "MIT",
     "scripts": {
-        "sort:api": "node ./lib/sortTags.js -i ./api-reference/openapi.json -p",
-        "scrape:api": "npx @mintlify/scraping@latest openapi-file ./api-reference/openapi.json -o ./api-reference/output"
+        "sort:api": "node ./lib/sortTags.js -i ./mdocs/api-reference/openapi.json -p",
+        "gen:api": "node ./lib/genRefPages.js -i ./mdocs/api-reference/openapi.json -o ./mdocs/api-reference/output",
+        "scrape:api": "npx @mintlify/scraping@latest openapi-file ./mdocs/api-reference/openapi.json -o ./mdocs/api-reference/output"
     },
     "keywords": [],
     "author": "",

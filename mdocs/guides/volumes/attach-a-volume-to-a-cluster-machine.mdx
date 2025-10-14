@@ -1,0 +1,55 @@
+---
+title: Attach a volume to a cluster machine
+titleDir: Volumes
+description: Attach and mount a volume on a cluster machine
+tag: Guide
+---
+
+## Prerequisites
+
+- An existing volume (see Create a volume)
+- A cluster with at least one machine (see Create a cluster)
+
+## Attach the volume
+
+1. Open **Clusters** and select your cluster.
+2. Open the action menu (⋮) for the target cluster machine.
+3. Click **Attach volume**.
+4. Select the volume and confirm.
+
+The volume is now available to mount from the machine.
+
+## Mount the volume (Ubuntu example)
+
+SSH into the cluster machine and run:
+
+```bash
+sudo apt install -y nfs-common
+sudo mkdir -p /data
+```
+
+Add an `/etc/fstab` entry (replace `IP_ADDRESS`):
+
+```bash
+IP_ADDRESS:/data /data nfs rw,nconnect=16,nfsvers=3 0 0
+```
+
+Mount all defined entries:
+
+```bash
+sudo mount -a
+```
+
+Verify:
+
+```bash
+df -h | grep /data
+```
+
+## Unmount
+
+```bash
+sudo umount /data
+```
+
+Remove the corresponding line from `/etc/fstab` if you no longer want it auto-mounted.
