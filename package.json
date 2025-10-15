@@ -8,12 +8,14 @@
     "scripts": {
         "sort:api": "node ./lib/sortTags.js -i ./mdocs/api-reference/openapi.json -p",
         "gen:api": "node ./lib/genRefPages.js -i ./mdocs/api-reference/openapi.json -o ./mdocs/api-reference/output",
-        "scrape:api": "npx @mintlify/scraping@latest openapi-file ./mdocs/api-reference/openapi.json -o ./mdocs/api-reference/output"
+        "scrape:api": "npx @mintlify/scraping@latest openapi-file ./mdocs/api-reference/openapi.json -o ./mdocs/api-reference/output",
+        "gen:help": "node ./lib/genHelpFromCsv.js -i ./lib/contentful-help-export.csv --update-nav ./docs.json"
     },
     "keywords": [],
     "author": "",
     "devDependencies": {
         "@types/node": "^24.7.0",
-        "openapi-types": "^12.1.3"
+        "openapi-types": "^12.1.3",
+        "csv-parse": "^5.5.6"
     }
 }

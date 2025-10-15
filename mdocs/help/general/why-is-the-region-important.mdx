@@ -1,0 +1,49 @@
+---
+title: Why is the data center important?
+category: General
+updated: 2024-10-18
+status: published
+---
+Selecting the correct data center (DC) impacts performance, compliance, reliability, and cost.
+
+1. __Latency and throughput__
+    - Placing a machine close to the primary users or connected systems reduces round-trip time and can significantly improve interactive workloads (e.g. remote desktops, APIs, low-latency inference).  
+    
+    <Note>
+    Example: A user in Germany will usually experience lower latency from a VM in a Frankfurt data center than from one in North America.
+    </Note>
+
+2. __Regulatory and data residency requirements__
+    - Certain workloads (e.g. handling personal data subject to GDPR) may need data to remain within a specific legal jurisdiction. Choosing an in-data center data center helps meet data residency, audit, and compliance obligations.
+
+3. __Cost considerations__
+    - Compute and storage pricing can vary by data center.
+    - Keeping tightly coupled services in the same data center reduces inter-data center data transfer costs.
+
+4. __Hardware and feature availability__ 
+    - Not all data centers offer every GPU/CPU type, storage tier, or GPU generation. Newer hardware typically appears in a limited set of data centers first.
+
+5. __Scaling and capacity planning__
+    - Some data centers may have higher capacity for burst scaling. Selecting a data center with adequate headroom reduces risk of quota or capacity delays for large fleet expansions.
+
+6. __Data locality for pipelines__
+    - Analytics, training, or inference pipelines that depend on large datasets perform better when compute and storage are co-located, minimizing cross-data center replication overhead.
+
+7. __Security and network architecture__
+    - Shorter network paths reduce exposure surface and simplify monitoring. Data center choice can align with existing SOC, SIEM, or zero-trust boundary designs.
+
+8. __Environmental and sustainability factors__
+    - Data centers differ in grid carbon intensity and renewable energy mix. Selecting a lower-carbon data center can support sustainability reporting.
+
+9. __User experience and SLA alignment__
+    - Meeting latency SLAs (e.g. p95 < X ms) often hinges on geographic proximity. Data center choice should be validated with real RTT measurements, not assumptions.
+
+Practical guidance:
+- Identify primary user clusters and measure baseline latency (e.g. ICMP + application RTT).  
+- Map compliance/data residency constraints early; this can eliminate data centers.  
+- Verify required instance types and quotas in target data centers.  
+- Model total cost (compute + storage + interconnect).  
+- Design a multi-data center failover plan if uptime requirements demand it.  
+- Run a small benchmark (network, CPU/GPU, storage I/O) in candidate data centers before committing.
+
+In short, pick the data center that balances latency, compliance, cost, hardware availability, and resilience.

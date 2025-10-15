@@ -236,25 +236,94 @@
       },
       {
         "tab": "Help",
-        "pages": [
-          "mdocs/help"
-        ]
-      }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://cudocompute.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://cudocompute.com/blog",
-          "icon": "newspaper"
+        "groups": [
+          {
+            "group": "Help",
+            "pages": [
+              {
+                "group": "Help",
+                "pages": [
+                  "mdocs/help"
+                ],
+                "hidden": true
+              },
+              {
+                "group": "Accounts",
+                "pages": [
+                  "mdocs/help/accounts",
+                  "mdocs/help/accounts/how-do-i-delete-my-affiliate-account",
+                  "mdocs/help/accounts/where-can-i-change-my-password",
+                  "mdocs/help/accounts/i-need-to-change-my-email-address",
+                  "mdocs/help/accounts/how-do-i-change-my-account-details",
+                  "mdocs/help/accounts/how-can-i-delete-my-default-payment-method",
+                  "mdocs/help/accounts/how-can-i-delete-my-account",
+                  "mdocs/help/accounts/how-can-i-create-an-account",
+                  "mdocs/help/accounts/i-forgot-my-username-and-password",
+                  "mdocs/help/accounts/i-forgot-my-password-what-can-i-do"
+                ]
+              },
+              {
+                "group": "Billing",
+                "pages": [
+                  "mdocs/help/billing",
+                  "mdocs/help/billing/what-payment-methods-do-you-support",
+                  "mdocs/help/billing/how-do-i-delete-my-cudo-compute-billing-account",
+                  "mdocs/help/billing/what-is-the-difference-between-hourly-and-monthly-costs",
+                  "mdocs/help/billing/when-do-i-get-invoiced-for-my-use",
+                  "mdocs/help/billing/where-can-i-find-the-auto-recharge-feature"
+                ]
+              },
+              {
+                "group": "Compute",
+                "pages": [
+                  "mdocs/help/compute",
+                  "mdocs/help/compute/adding-a-user-to-a-project",
+                  "mdocs/help/compute/how-do-i-delete-my-vm",
+                  "mdocs/help/compute/why-is-windows-inactive",
+                  "mdocs/help/compute/how-do-i-find-out-the-username-of-the-virtual-machine",
+                  "mdocs/help/compute/how-do-i-recover-a-deleted-vm",
+                  "mdocs/help/compute/how-do-i-create-a-vm",
+                  "mdocs/help/compute/how-can-i-log-in-to-compute"
+                ]
+              },
+              {
+                "group": "General",
+                "pages": [
+                  "mdocs/help/general",
+                  "mdocs/help/general/what-password-convention-do-i-need",
+                  "mdocs/help/general/how-do-i-install-terraform-on-my-pc",
+                  "mdocs/help/general/what-is-the-minimum-top-up-value",
+                  "mdocs/help/general/what-is-a-virtual-machine",
+                  "mdocs/help/general/am-i-charged-if-a-vm-is-stopped-powered-off",
+                  "mdocs/help/general/why-cant-i-add-my-payment-method",
+                  "mdocs/help/general/can-i-transfer-a-vm-between-projects",
+                  "mdocs/help/general/where-can-i-check-the-service-status",
+                  "mdocs/help/general/what-is-an-administrator-password-and-why-do-i-need-it",
+                  "mdocs/help/general/how-can-i-get-support-for-my-problem",
+                  "mdocs/help/general/what-is-ssh-and-why-do-i-need-it",
+                  "mdocs/help/general/why-is-the-region-important",
+                  "mdocs/help/general/how-to-get-started"
+                ]
+              }
+            ]
+          }
+        ],
+        "global": {
+          "anchors": [
+            {
+              "anchor": "Documentation",
+              "href": "https://cudocompute.com/docs",
+              "icon": "book-open-cover"
+            },
+            {
+              "anchor": "Blog",
+              "href": "https://cudocompute.com/blog",
+              "icon": "newspaper"
+            }
+          ]
         }
-      ]
-    }
+      }
+    ]
   },
   "logo": {
     "light": "/logo/light.svg",

@@ -1,0 +1,42 @@
+---
+title: How do I install Terraform on my PC?
+description: A procedure on how to install Terraform on your PC
+category: General
+updated: 2025-01-30
+status: published
+---
+1. Sign up to CUDO Compute and make an API key and project in your account
+2. Make a Terraform plan and fill in the API key and project (example provided)
+3. Review the CUDO Compute Terraform provider documentation for more examples
+4. Credit your account with as much as you need to run the resources for your plan
+5. Apply the Terraform plan
+
+[Terraform Registry](https://registry.terraform.io/providers/CudoVentures/cudo/latest/docs "Terraform Registry")
+
+```hcl
+terraform {
+  required_providers {
+    cudo = {
+      source = "CudoVentures/cudo"
+    }
+  }
+}
+
+provider "cudo" {
+  project_id = "ADD PROJECT ID HERE"
+  api_key    = "ADD API KEY HERE"
+}
+
+resource "cudo_vm" "example_vm" {
+  boot_disk = {
+    image_id = "ubuntu-2204-nvidia-535-docker-v20241017"
+    size_gib = 100
+  }
+  id             = "learning-vm"
+  machine_type   = "ice-lake-rtx-a5000"
+  data_center_id = "ca-montreal-3"
+  gpus           = 1
+  vcpus          = 8
+  memory_gib     = 16
+}
+```
