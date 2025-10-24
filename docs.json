@@ -342,12 +342,6 @@
     "dark": "/logo/dark.svg"
   },
   "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "https://cudo.sysaidit.com/spaces/login?manual=true"
-      }
-    ],
     "primary": {
       "type": "button",
       "label": "Dashboard",
