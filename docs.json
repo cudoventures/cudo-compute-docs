@@ -26,7 +26,7 @@
           {
             "group": "Getting started",
             "pages": [
-              "docs",
+              "docs/index",
               "docs/quickstart"
             ]
           },
@@ -42,7 +42,7 @@
           {
             "group": "Suppliers",
             "pages": [
-              "docs/suppliers",
+              "docs/suppliers/index",
               "docs/suppliers/requirements",
               "docs/suppliers/pricing"
             ]
