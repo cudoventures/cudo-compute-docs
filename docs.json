@@ -42,9 +42,9 @@
           {
             "group": "Suppliers",
             "pages": [
-              "docs/guides/suppliers",
-              "docs/guides/suppliers/requirements",
-              "docs/guides/suppliers/pricing"
+              "docs/suppliers",
+              "docs/suppliers/requirements",
+              "docs/suppliers/pricing"
             ]
           }
         ]
