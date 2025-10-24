@@ -1,0 +1,81 @@
+---
+title: "dstack"
+description: "Use dStack to manage and deploy your infrastructure"
+---
+
+## dstack on CUDO Compute
+
+[dstack](https://github.com/dstackai/dstack) is an open-source alternative to Kubernetes and Slurm, built to streamline AI development and deployment across cloud providers. dstack provides the following capabilities:
+
+- **Dev Environments**: Quickly set up remote machines with your code and IDE for interactive coding. Ideal for testing code in your IDE or notebook before task scheduling or deployment.
+
+- **Tasks**: Schedule jobs or run web apps with configurable dependencies, resources, and more. Suited for training, fine-tuning, or app testing, with support for distributed clusters.
+
+- **Services**: Deploy scalable web apps or models as private or public endpoints, complete with dependency management, resource allocation, and scaling rules.
+
+- **Fleets**: Efficiently manage clusters and instances for cloud and on-prem resources, reusable across dev environments, tasks, and services.
+
+dstack is available as a self-hosted open-source version and a hosted marketplace version.
+
+## Install dstack
+
+Create a config file for CUDO and save it to ``~/.dstack/server/config.yml``. You will need to have created a project and know its id, and you will need to create an API key in the CUDO Compute web console.
+
+```yaml
+projects:
+  - name: main
+    backends:
+      - type: cudo
+        project_id: my-cudo-project
+        creds:
+          type: api_key
+          api_key: 7487240a466624b48de22865589
+```
+
+Install dstack and start the server
+
+```shell
+pip install "dstack[all]" -U
+dstack server
+```
+
+## Try out a dstack deployment
+Now you can create a project directory and initialize it for use with dstack:
+
+```shell
+mkdir quickstart && cd quickstart
+dstack init
+```
+
+Create a yaml file ``.dstack.yaml`` inside your project directory to define your dstack deployment, here we are deploying a remote IDE (vscode):
+
+```yaml
+type: dev-environment
+# The name is optional, if not specified, generated randomly
+name: vscode
+
+python: '3.11'
+# Uncomment to use a custom Docker image
+# image: dstackai/base:py3.13-0.6-cuda-12.1
+
+ide: vscode
+
+# Use either spot or on-demand instances
+spot_policy: auto
+
+# Uncomment to request resources
+# resources:
+#  gpu: 24GB
+```
+
+Now apply the dstack configuration:
+```shell
+dstack apply -f .dstack.yml
+```
+
+## More information
+
+Please check the dstack documentation for the most up-to-date features.
+- [dstack overview](https://dstack.ai/docs/#how-does-it-work)
+- [dstack installation](https://dstack.ai/docs/installation/)
+- [CUDO Compute configuration](https://dstack.ai/docs/reference/server/config.yml/#cudo)

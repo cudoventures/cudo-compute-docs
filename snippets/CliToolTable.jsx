@@ -7,29 +7,29 @@ export const CliToolTable = () => {
         if (brand !== 'cudo') {
             switch (brand) {
                 case 'macos':
-                    return '/mdocs/images/osImages/macos.svg'
+                    return '/docs/images/osImages/macos.svg'
                 case 'debian':
-                    return '/mdocs/images/osImages/debian.svg'
+                    return '/docs/images/osImages/debian.svg'
                 case 'redhat':
-                    return '/mdocs/images/osImages/redhat.svg'
+                    return '/docs/images/osImages/redhat.svg'
                 case 'linux':
-                    return '/mdocs/images/osImages/linux.svg'
+                    return '/docs/images/osImages/linux.svg'
                 case 'windows':
-                    return '/mdocs/images/osImages/windows.svg'
+                    return '/docs/images/osImages/windows.svg'
             }
         }
         else {
             switch (id) {
                 case 'cudo-ubuntu2004-docker':
-                    return '/mdocs/images/osImages/docker.png'
+                    return '/docs/images/osImages/docker.png'
                 case 'cudo-ubuntu2004-blender':
-                    return '/mdocs/images/osImages/blender.png'
+                    return '/docs/images/osImages/blender.png'
                 case 'cudo-tensorflow-docker-gpu':
-                    return '/mdocs/images/osImages/tensorflow.svg'
+                    return '/docs/images/osImages/tensorflow.svg'
                 case 'cudo-ubuntu-nvidia':
-                    return '/mdocs/images/osImages/nvidia.svg'
+                    return '/docs/images/osImages/nvidia.svg'
                 case 'cudo-ubuntu-focal':
-                    return '/mdocs/images/osImages/ubuntu.svg'
+                    return '/docs/images/osImages/ubuntu.svg'
                 default:
                     return '/logo-mark-black.svg'
             }

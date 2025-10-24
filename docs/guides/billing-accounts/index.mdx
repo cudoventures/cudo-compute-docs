@@ -1,0 +1,33 @@
+---
+title: Introduction
+description: Information on billing accounts & how billing works.
+tag: Concept
+---
+
+Billing accounts hold all billing related information such as credit balance, payment methods & transaction history. You can use the same billing account for multiple projects.
+
+## How does billing work?
+
+Your billing account has a credit balance, which can be topped up by going to your billing account and clicking **Add to credit balance**. This is also available at the point of deployment or by enabling auto recharge.
+
+Payments will be deducted from your billing account's credit balance. Once per hour, we recalculate your resource usage for the current month with precision to the nearest second and adjust your credit balance accordingly. Once per month, your usage is summed up and an invoice is generated (which is viewable from the invoices tab in your billing account), for a long-lived historical view of your usage.
+
+In order to deploy chargeable resources (virtual machines, networks etc), you will need to add a minimum amount to your billing account's credit balance.
+
+
+<Note>
+When your credit balance reaches $0.00, your resources will be deleted. We recommend configuring auto recharge to prevent this from happening.
+</Note>
+
+
+## What resources are charged?
+
+All resources on the platform are chargeable, including but not limited to:
+
+- Virtual Machine CPU, GPU and memory
+- Storage (including disk storage for private images)
+- Network IP reservation
+
+### Auto recharge
+
+To keep your billing account topped up and to prevent automatic resource deletion, you can configure auto recharge. This allows you to top your balance up when it falls to a certain amount. See our guide on [how to configure auto recharge]"/docs/guides/billing/configure-auto-recharge).

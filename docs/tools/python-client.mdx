@@ -1,0 +1,78 @@
+---
+title: "Python client"
+description: "Use the CUDO Compute Python client to interact with the API"
+icon: "python"
+---
+
+## Install cudoctl
+
+To use this client you will need to
+1. **[Create an API key](/api/api-keys/create-an-api-key)** from the **[web UI](https://compute.cudo.org/profile/api-keys?create=api-key)**
+2. Download and install cudoctl command line tool from **[here](/tools/cli)**
+3. Run ``cudoctl init`` and enter your API key and select a project/billing account.
+
+Once cudoctl is set up the python client will use the default API key configured by cudoctl. If you would like to change project in the python client you will need to run ``cudoctl init`` again.
+
+## Install via pip
+
+To install the python client via pip run:
+```sh
+pip install cudo-compute
+```
+
+## Example code
+For more information see the [GitHub Repository](https://github.com/cudoVentures/cudo-compute-python-client) Full examples can be found in the ``examples`` directory.
+Below are some simplified examples:
+
+### Create a virtual machine
+```python
+from cudo_compute import cudo_api, Disk, CreateVMBody
+
+disk = Disk(storage_class="STORAGE_CLASS_NETWORK", size_gib=100,
+                id="my-disk-id")
+
+request = CreateVMBody(vm_id="my-vm-id", machine_type="epyc-rome-rtx-a4000",
+                           data_center_id="no-luster-1", boot_disk_image_id='ubuntu-nvidia-docker',
+                           memory_gib=16, vcpus=4, gpus=1, gpu_model="A4000", boot_disk=disk,
+                           metadata={"group":"a"})
+
+api = cudo_api.virtual_machines()
+vm = api.create_vm(cudo_api.project_id(), request)
+```
+
+### List current virtual machines
+```python
+from cudo_compute import cudo_api
+
+api = cudo_api.virtual_machines()
+vms = api.list_vms(cudo_api.project_id())
+```
+
+### Terminate a virtual machine
+```python
+from cudo_compute import cudo_api
+
+api = cudo_api.virtual_machines()
+api.terminate_vm(cudo_api.project_id(), 'my-vm-id')
+```
+
+### Other services
+The API has multiple services (other than virtual_machines)
+- apikeys
+- disks
+- networks
+- object_storage
+- permissions
+- ssh_keys
+- search
+- user
+- virtual_machines
+
+Other services  can be used like this:
+```python
+from cudo_compute import cudo_api
+
+api = cudo_api.networks()
+```
+
+For more information see the ``/docs`` directory of the [GitHub Repository](https://github.com/cudoVentures/cudo-compute-python-client/tree/main/docs)

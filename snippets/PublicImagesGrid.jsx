@@ -3,59 +3,59 @@ export const PublicImagesGrid = () => {
 
     const getOsImageIcon = (id) => {
         if (/stability/.test(id))
-            return '/mdocs/images/osImages/stability-ai.svg'
+            return '/docs/images/osImages/stability-ai.svg'
 
         const index = id.search('-')
         const brand = index > 0 ? id.substring(0, index) : id
         if (brand !== 'cudo') {
             switch (brand) {
                 case 'alpine':
-                    return '/mdocs/images/osImages/alpine-linux.png'
+                    return '/docs/images/osImages/alpine-linux.png'
                 case 'amazon':
-                    return '/mdocs/images/osImages/amazon-linux.png'
+                    return '/docs/images/osImages/amazon-linux.png'
                 case 'centos':
-                    return '/mdocs/images/osImages/centos.svg'
+                    return '/docs/images/osImages/centos.svg'
                 case 'debian':
-                    return '/mdocs/images/osImages/debian.svg'
+                    return '/docs/images/osImages/debian.svg'
                 case 'devuan':
-                    return '/mdocs/images/osImages/devuan.png'
+                    return '/docs/images/osImages/devuan.png'
                 case 'fedora':
-                    return '/mdocs/images/osImages/fedora.png'
+                    return '/docs/images/osImages/fedora.png'
                 // todo: this id should be hyphonated in db
                 case 'fedora36':
-                    return '/mdocs/images/osImages/fedora.png'
+                    return '/docs/images/osImages/fedora.png'
                 case 'freebsd':
-                    return '/mdocs/images/osImages/freebsd.svg'
+                    return '/docs/images/osImages/freebsd.svg'
                 case 'gitlab':
-                    return '/mdocs/images/osImages/gitlab.svg'
+                    return '/docs/images/osImages/gitlab.svg'
                 case 'hive':
-                    return '/mdocs/images/osImages/hive.png'
+                    return '/docs/images/osImages/hive.png'
                 case 'opensuse':
-                    return '/mdocs/images/osImages/open-suse.png'
+                    return '/docs/images/osImages/open-suse.png'
                 case 'oracle':
-                    return '/mdocs/images/osImages/oracle.svg'
+                    return '/docs/images/osImages/oracle.svg'
                 case 'rocky':
-                    return '/mdocs/images/osImages/rocky-linux.png'
+                    return '/docs/images/osImages/rocky-linux.png'
                 case 'service':
-                    return '/mdocs/images/osImages/wordpress.png'
+                    return '/docs/images/osImages/wordpress.png'
                 case 'ubuntu':
-                    return '/mdocs/images/osImages/ubuntu.svg'
+                    return '/docs/images/osImages/ubuntu.svg'
                 case 'windows':
-                    return '/mdocs/images/osImages/windows.svg'
+                    return '/docs/images/osImages/windows.svg'
             }
         }
         else {
             switch (id) {
                 case 'cudo-ubuntu2004-docker':
-                    return '/mdocs/images/osImages/docker.png'
+                    return '/docs/images/osImages/docker.png'
                 case 'cudo-ubuntu2004-blender':
-                    return '/mdocs/images/osImages/blender.png'
+                    return '/docs/images/osImages/blender.png'
                 case 'cudo-tensorflow-docker-gpu':
-                    return '/mdocs/images/osImages/tensorflow.svg'
+                    return '/docs/images/osImages/tensorflow.svg'
                 case 'cudo-ubuntu-nvidia':
-                    return '/mdocs/images/osImages/nvidia.svg'
+                    return '/docs/images/osImages/nvidia.svg'
                 case 'cudo-ubuntu-focal':
-                    return '/mdocs/images/osImages/ubuntu.svg'
+                    return '/docs/images/osImages/ubuntu.svg'
                 default:
                     return '/logo-mark-black.svg'
             }
