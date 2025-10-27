@@ -86,7 +86,7 @@ Next time you log in, you will need to use the new password.
 
 If you need to change the password for any of the other social providers such as Google or GitHub, please check the available support documentations for the respective social provider.
 
-If you forgot your password, please see [this guide](/docs/help/q/i-forgot-my-password-what-can-i-do).","You can change your password from the security page in the console. Click Change password, enter your new password in the Password box and click Change password.","published"
+If you forgot your password, please see [this guide](/help/q/i-forgot-my-password-what-can-i-do).","You can change your password from the security page in the console. Click Change password, enter your new password in the Password box and click Change password.","published"
 "I need to change my email address","Help Question","2024-10-22","Ryan Ede","i-need-to-change-my-email-address","Accounts","You can update your email address on the Accounts page, on the [Personal info](https://compute.cudo.org/profile/personal-info) sub page.
 - Type in the new email address and click Save.
 - An email confirmation request will be sent to the inbox of the newly added address.
@@ -144,7 +144,7 @@ Congratulations! Welcome to the CUDO Compute console.
 If you forgot the email address associated with any of the 3rd party accounts we provide as login options, this is not an issue we can assist you with. You will have to contact the support desk associated with either of the services you used.
 
 If you forgot your password, please use the ""Forgot your password?"" feature on the login page.
-[Click here](/docs/help/q/i-forgot-my-password-what-can-i-do) for a guide if you forgot your password.","Your username will always be your email address.  If you forgot the email address associated with any of the 3rd party accounts we provide as login options, this is not an issue we can assist you with. ","published"
+[Click here](/help/q/i-forgot-my-password-what-can-i-do) for a guide if you forgot your password.","Your username will always be your email address.  If you forgot the email address associated with any of the 3rd party accounts we provide as login options, this is not an issue we can assist you with. ","published"
 "I forgot my password, what can I do?","Help Question","2024-10-22","Ryan Ede","i-forgot-my-password-what-can-i-do","Accounts","Simply use the ""Forgot you password?"" button from the sign-in page.
 - Type in the email address used to create the account and submit your request.
 - Check your inbox for a password reset email.
@@ -179,7 +179,7 @@ The reason for this is because the underlying hardware and other resources that 
 If you wish to stop accruing costs __you will need to delete any chargeable resources__ in your project(s).","Yes, charges for billable resources continue to accrue even if these are powered off. This is to reserve your VM and ensure availability when you wish to power it back on.","published"
 "Network Pricing","Help Question","2024-10-18","Ryan Ede","network-pricing","General","User requesting Network pricing, example below.
 
-Network pricing is available on [https://rest.compute.cudo.org/v1/vms/data-centers](https://rest.compute.cudo.org/v1/vms/data-centers), you will also need to add the price of an ipv4 address to the price of a router. There is an example [here](https://www.cudocompute.com/docs/rest-api/virtual-machines#list-data-centers).
+Network pricing is available on [https://rest.compute.cudo.org/v1/vms/data-centers](https://rest.compute.cudo.org/v1/vms/data-centers), you will also need to add the price of an ipv4 address to the price of a router. There is an example [here](https://www.cudocompute.com/rest-api/virtual-machines#list-data-centers).
 ","See our network pricing by querying our API endpoint. You will also need to add the price of an IPv4 address to the price of a router.","published"
 "Can I get the 50% discount?","Help Question","2024-10-18","Ryan Ede","can-i-get-the-50-discount","General","You are eligible for a discount if:
 * You commit to using the platform and realising continuous revenue for at least 6 months;
@@ -224,7 +224,7 @@ Source: [Wikipedia](https://en.wikipedia.org/wiki/Secure_Shell)","The Secure She
 
 E.g. If you want to set up a VM that is to be used by someone in Germany, latency could be minimised by creating a VM located in Germany.
 ","Considering the distances the information needs to travel, it could make more sense to set up a VM(s) closer to the user of said VM(s).","published"
-"How to get started on CUDO Compute","Help Question","2024-10-18","Ryan Ede","how-to-get-started","General","Please refer to our [getting started documentation](/docs/getting-started) for more information.","Please refer to our getting started documentation for steps on how to get started with CUDO Compute.","published"
+"How to get started on CUDO Compute","Help Question","2024-10-18","Ryan Ede","how-to-get-started","General","Please refer to our [getting started documentation](/getting-started) for more information.","Please refer to our getting started documentation for steps on how to get started with CUDO Compute.","published"
 "How do I delete my CUDO Compute billing account?","Help Question","2024-10-18","Ryan Ede","how-do-i-delete-my-cudo-compute-billing-account","Billing","Your billing account can be manually deleted only if there are __no pending invoices__.
 
 To delete your billing account, please follow these steps:

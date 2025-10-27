@@ -12,12 +12,12 @@ description: 'Overview of the CUDO Compute REST API: concepts, authentication, v
 The CUDO Compute API is a versioned, resource-oriented HTTPS REST API. It provides secure, programmatic access to the full range of CUDO Compute platform capabilities including clusters, virtual machines, bare metal, volumes, disks, networks, security groups, images, object storage, billing accounts and more.
 
 {/* <Checklist>
-  <CheckItem>Provision and manage <Link href="/docs/guides/clusters/0.index">clusters</Link> (GPU & CPU capacity)</CheckItem>
-  <CheckItem>Create, start, stop and resize <Link href="/docs/guides/virtual-machines/0.index">virtual machines</Link> & bare metal machines</CheckItem>
-  <CheckItem>Attach, detach, and resize <Link href="/docs/guides/volumes/0.index">volumes</Link> and manage <Link href="/docs/guides/disks/0.index">disks</Link></CheckItem>
-  <CheckItem>Manage <Link href="/docs/guides/networks/0.index">networks</Link>, security groups, and ingress controls</CheckItem>
-  <CheckItem>Import, list and manage machine <Link href="/docs/guides/images/0.index">images</Link></CheckItem>
-  <CheckItem>Work with <Link href="/docs/guides/object-storage/0.index">object storage</Link></CheckItem>
+  <CheckItem>Provision and manage <Link href="/guides/clusters/0.index">clusters</Link> (GPU & CPU capacity)</CheckItem>
+  <CheckItem>Create, start, stop and resize <Link href="/guides/virtual-machines/0.index">virtual machines</Link> & bare metal machines</CheckItem>
+  <CheckItem>Attach, detach, and resize <Link href="/guides/volumes/0.index">volumes</Link> and manage <Link href="/guides/disks/0.index">disks</Link></CheckItem>
+  <CheckItem>Manage <Link href="/guides/networks/0.index">networks</Link>, security groups, and ingress controls</CheckItem>
+  <CheckItem>Import, list and manage machine <Link href="/guides/images/0.index">images</Link></CheckItem>
+  <CheckItem>Work with <Link href="/guides/object-storage/0.index">object storage</Link></CheckItem>
   <CheckItem>Handle billing accounts, usage and quotas</CheckItem>
 </Checklist> */}
 
@@ -27,10 +27,10 @@ All endpoints speak JSON over HTTPS and are designed for automation, infrastruct
   <Card title="Base URL" icon="globe" href="#base-url-versioning">
     rest.compute.cudo.org
   </Card>
-  <Card title="Auth" icon="key" href="/docs/api/authentication">
+  <Card title="Auth" icon="key" href="/api/authentication">
     Bearer API keys in Authorization header
   </Card>
-  <Card title="Errors" icon="warning" href="/docs/api/errors">
+  <Card title="Errors" icon="warning" href="/api/errors">
     AIP-193 structured error model
   </Card>
 </CardGroup>
@@ -44,7 +44,7 @@ All current endpoints are served from:
 https://rest.compute.cudo.org/v1/
 ```
 
-The `v1` segment denotes the stable API surface. Additive, backwards-compatible changes (new fields, endpoints) may occur without prior notice. Any breaking changes will be announced in the <Link href="/docs/api/changelog">Changelog</Link> with advanced notice.
+The `v1` segment denotes the stable API surface. Additive, backwards-compatible changes (new fields, endpoints) may occur without prior notice. Any breaking changes will be announced in the <Link href="/api/changelog">Changelog</Link> with advanced notice.
 
 ## Authentication
 
@@ -54,7 +54,7 @@ Authenticate every request with a Bearer API key:
 Authorization: Bearer <your_api_key>
 ```
 
-See the dedicated <Link href="/docs/api/authentication">Authentication</Link> page for creating and rotating keys, best practices, and troubleshooting. Requests without a valid key return `401 UNAUTHENTICATED`.
+See the dedicated <Link href="/api/authentication">Authentication</Link> page for creating and rotating keys, best practices, and troubleshooting. Requests without a valid key return `401 UNAUTHENTICATED`.
 
 ## Key concepts
 
@@ -126,7 +126,7 @@ Typical (truncated) successful JSON response:
 
 ## Errors & status codes
 
-All non-2xx responses use a structured envelope following <Link href="https://google.aip.dev/193" target="_blank">AIP-193</Link>. See <Link href="/docs/api/errors">Errors</Link> for field semantics and canonical code mapping. Handle retryable codes (`UNAVAILABLE`, `RESOURCE_EXHAUSTED`, `DEADLINE_EXCEEDED`, `ABORTED`) with exponential backoff + jitter. Do not parse human-readable `message` strings-use `status`, `code`, and `details`.
+All non-2xx responses use a structured envelope following <Link href="https://google.aip.dev/193" target="_blank">AIP-193</Link>. See <Link href="/api/errors">Errors</Link> for field semantics and canonical code mapping. Handle retryable codes (`UNAVAILABLE`, `RESOURCE_EXHAUSTED`, `DEADLINE_EXCEEDED`, `ABORTED`) with exponential backoff + jitter. Do not parse human-readable `message` strings-use `status`, `code`, and `details`.
 
 ## Rate limiting
 
@@ -135,12 +135,12 @@ If you exceed per-key or per-resource limits you receive `429 RESOURCE_EXHAUSTED
 ## Tooling & integrations
 
 <CardGroup cols={3}>
-  <Card title="cudoctl CLI" icon="terminal" href="/docs/tools/cli">Script resource lifecycle operations quickly.</Card>
-  <Card title="Python Client" icon="python" href="/docs/tools/python-client">Programmatic convenience wrapper.</Card>
+  <Card title="cudoctl CLI" icon="terminal" href="/tools/cli">Script resource lifecycle operations quickly.</Card>
+  <Card title="Python Client" icon="python" href="/tools/python-client">Programmatic convenience wrapper.</Card>
   <Card title="Terraform" icon="layers" href="https://registry.terraform.io/providers/CudoVentures/cudo/latest/docs">Manage infra as code.</Card>
 </CardGroup>
 
-Additional automation tooling examples (dstack, Terraform, Python) are covered in the <Link href="/docs/tools/cli">Tools</Link> section.
+Additional automation tooling examples (dstack, Terraform, Python) are covered in the <Link href="/tools/cli">Tools</Link> section.
 
 ## OpenAPI specification
 
@@ -156,16 +156,16 @@ You can use it to generate strongly-typed clients, validate requests, or explore
 
 <AccordionGroup>
   <Accordion title="Get an API key" icon="key" defaultOpen>
-    Visit the <Link href="/docs/api/authentication">Authentication</Link> guide to create your first key.
+    Visit the <Link href="/api/authentication">Authentication</Link> guide to create your first key.
   </Accordion>
   <Accordion title="Create infrastructure" icon="rocket">
-    Follow the <Link href="/docs/quickstart">Quickstart</Link> then deploy your first cluster or virtual machine.
+    Follow the <Link href="/quickstart">Quickstart</Link> then deploy your first cluster or virtual machine.
   </Accordion>
   <Accordion title="Handle errors gracefully" icon="warning">
-    Review <Link href="/docs/api/errors">Errors</Link> and implement structured handling + retries.
+    Review <Link href="/api/errors">Errors</Link> and implement structured handling + retries.
   </Accordion>
   <Accordion title="Track changes" icon="history">
-    Monitor new endpoints & updates in the <Link href="/docs/api/changelog">Changelog</Link>.
+    Monitor new endpoints & updates in the <Link href="/api/changelog">Changelog</Link>.
   </Accordion>
 </AccordionGroup>
 

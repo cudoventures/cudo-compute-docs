@@ -3,59 +3,59 @@ export const PublicImagesGrid = () => {
 
     const getOsImageIcon = (id) => {
         if (/stability/.test(id))
-            return '/docs/images/osImages/stability-ai.svg'
+            return '/images/osImages/stability-ai.svg'
 
         const index = id.search('-')
         const brand = index > 0 ? id.substring(0, index) : id
         if (brand !== 'cudo') {
             switch (brand) {
                 case 'alpine':
-                    return '/docs/images/osImages/alpine-linux.png'
+                    return '/images/osImages/alpine-linux.png'
                 case 'amazon':
-                    return '/docs/images/osImages/amazon-linux.png'
+                    return '/images/osImages/amazon-linux.png'
                 case 'centos':
-                    return '/docs/images/osImages/centos.svg'
+                    return '/images/osImages/centos.svg'
                 case 'debian':
-                    return '/docs/images/osImages/debian.svg'
+                    return '/images/osImages/debian.svg'
                 case 'devuan':
-                    return '/docs/images/osImages/devuan.png'
+                    return '/images/osImages/devuan.png'
                 case 'fedora':
-                    return '/docs/images/osImages/fedora.png'
+                    return '/images/osImages/fedora.png'
                 // todo: this id should be hyphonated in db
                 case 'fedora36':
-                    return '/docs/images/osImages/fedora.png'
+                    return '/images/osImages/fedora.png'
                 case 'freebsd':
-                    return '/docs/images/osImages/freebsd.svg'
+                    return '/images/osImages/freebsd.svg'
                 case 'gitlab':
-                    return '/docs/images/osImages/gitlab.svg'
+                    return '/images/osImages/gitlab.svg'
                 case 'hive':
-                    return '/docs/images/osImages/hive.png'
+                    return '/images/osImages/hive.png'
                 case 'opensuse':
-                    return '/docs/images/osImages/open-suse.png'
+                    return '/images/osImages/open-suse.png'
                 case 'oracle':
-                    return '/docs/images/osImages/oracle.svg'
+                    return '/images/osImages/oracle.svg'
                 case 'rocky':
-                    return '/docs/images/osImages/rocky-linux.png'
+                    return '/images/osImages/rocky-linux.png'
                 case 'service':
-                    return '/docs/images/osImages/wordpress.png'
+                    return '/images/osImages/wordpress.png'
                 case 'ubuntu':
-                    return '/docs/images/osImages/ubuntu.svg'
+                    return '/images/osImages/ubuntu.svg'
                 case 'windows':
-                    return '/docs/images/osImages/windows.svg'
+                    return '/images/osImages/windows.svg'
             }
         }
         else {
             switch (id) {
                 case 'cudo-ubuntu2004-docker':
-                    return '/docs/images/osImages/docker.png'
+                    return '/images/osImages/docker.png'
                 case 'cudo-ubuntu2004-blender':
-                    return '/docs/images/osImages/blender.png'
+                    return '/images/osImages/blender.png'
                 case 'cudo-tensorflow-docker-gpu':
-                    return '/docs/images/osImages/tensorflow.svg'
+                    return '/images/osImages/tensorflow.svg'
                 case 'cudo-ubuntu-nvidia':
-                    return '/docs/images/osImages/nvidia.svg'
+                    return '/images/osImages/nvidia.svg'
                 case 'cudo-ubuntu-focal':
-                    return '/docs/images/osImages/ubuntu.svg'
+                    return '/images/osImages/ubuntu.svg'
                 default:
                     return '/logo-mark-black.svg'
             }
