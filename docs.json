@@ -70,7 +70,7 @@
           {
             "group": "Changelog",
             "pages": [
-              "/docs/changelog"
+              "/docs/api/changelog"
             ]
           }
         ]
