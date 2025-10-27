@@ -55,7 +55,7 @@
           {
             "group": "Basics",
             "pages": [
-              "docs/api/introduction",
+              "docs/api",
               "docs/api/authentication",
               "docs/api/errors"
             ]
@@ -515,11 +515,11 @@
     },
     {
       "source": "/rest-api",
-      "destination": "/docs/api/introduction"
+      "destination": "/docs/api"
     },
     {
       "source": "/rest-api/api-keys",
-      "destination": "/docs/api/introduction"
+      "destination": "/docs/api/api-keys"
     },
     {
       "source": "/security-groups",
@@ -535,15 +535,15 @@
     },
     {
       "source": "/supply",
-      "destination": "/docs/guides/suppliers"
+      "destination": "/docs/suppliers"
     },
     {
       "source": "/supply/pricing",
-      "destination": "/docs/guides/suppliers/pricing"
+      "destination": "/docs/suppliers/pricing"
     },
     {
       "source": "/supply/requirements",
-      "destination": "/docs/guides/suppliers/requirements"
+      "destination": "/docs/suppliers/requirements"
     },
     {
       "source": "/virtual-machines",
