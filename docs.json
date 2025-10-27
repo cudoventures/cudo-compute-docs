@@ -64,13 +64,13 @@
             "group": "Endpoints",
             "openapi": {
               "source": "/docs/openapi.json",
-              "directory": "/docs/api"
+              "directory": "/docs/api/"
             }
           },
           {
             "group": "Changelog",
             "pages": [
-              "/changelog"
+              "/docs/changelog"
             ]
           }
         ]
