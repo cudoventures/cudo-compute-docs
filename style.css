@@ -1,8 +1,8 @@
 .method-nav-pill > span {
   border-radius: 0.25em;
 }
-#navigation-items a > div > div {
-  flex-grow: 1;
+#navigation-items a > div {
+  justify-content: space-between;
 }
 .nav-tag-pill {
   justify-self: end;
