@@ -28,7 +28,7 @@ mint dev
 
 ### Generating Help Articles from Contentful CSV
 
-We migrate legacy Help Center articles exported from Contentful (CSV) into Mintlify MDX under `docs/help`.
+We migrate legacy Help Center articles exported from Contentful (CSV) into Mintlify MDX under `/help`.
 
 1. Place (or update) the export at `./lib/contentful-help-export.csv`.
 2. Run the generator script:
@@ -40,15 +40,15 @@ npm run gen:help
 This will:
 
 - Parse the CSV rows (expects columns: `Name, Slug, Categories, Answer, Meta description, Updated, status`).
-- Create MDX files grouped by primary category: `docs/help/<category>/slug.mdx`.
-- Download and rewrite Contentful image asset links to local paths under `docs/images/help`.
+- Create MDX files grouped by primary category: `/help/<category>/slug.mdx`.
+- Download and rewrite Contentful image asset links to local paths under `/images/help`.
 - Update the Help tab navigation in `docs.json`, replacing existing category groups (but preserving the hidden root index page).
 
 Flags (advanced):
 
 ```bash
 node ./lib/genHelpFromCsv.js -i ./lib/contentful-help-export.csv \
-	-o docs/help -d docs/images/help --update-nav ./docs.json --dry-run --force --verbose
+	-o /help -d /images/help --update-nav ./docs.json --dry-run --force --verbose
 ```
 
 Useful when testing:
@@ -57,7 +57,7 @@ Useful when testing:
 - `--force` to overwrite existing files.
 - `--verbose` for detailed logging.
 
-Regenerating is idempotent; image downloads are cached by filename. To reset, delete `docs/help` and `docs/images/help` then re-run.
+Regenerating is idempotent; image downloads are cached by filename. To reset, delete `/help` and `/images/help` then re-run.
 
 View your local preview at `http://localhost:3000`.
 
