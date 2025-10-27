@@ -26,25 +26,25 @@
           {
             "group": "Getting started",
             "pages": [
-              "/docs/index",
-              "/docs/quickstart"
+              "docs/index",
+              "docs/quickstart"
             ]
           },
           {
             "group": "Developer tools",
             "pages": [
-              "/docs/tools/cudoctl",
-              "/docs/tools/python-client",
-              "/docs/tools/dstack",
-              "/docs/tools/terraform"
+              "docs/tools/cudoctl",
+              "docs/tools/python-client",
+              "docs/tools/dstack",
+              "docs/tools/terraform"
             ]
           },
           {
             "group": "Suppliers",
             "pages": [
-              "/docs/suppliers/index",
-              "/docs/suppliers/requirements",
-              "/docs/suppliers/pricing"
+              "docs/suppliers/index",
+              "docs/suppliers/requirements",
+              "docs/suppliers/pricing"
             ]
           }
         ]
@@ -55,22 +55,22 @@
           {
             "group": "Basics",
             "pages": [
-              "/docs/api/introduction",
-              "/docs/api/authentication",
-              "/docs/api/errors"
+              "docs/api/introduction",
+              "docs/api/authentication",
+              "docs/api/errors"
             ]
           },
           {
             "group": "Endpoints",
             "openapi": {
-              "source": "/openapi.json",
-              "directory": "/docs/api"
+              "source": "docs/api/openapi.json",
+              "directory": "docs/api"
             }
           },
           {
             "group": "Changelog",
             "pages": [
-              "/docs/api/changelog"
+              "docs/api/changelog"
             ]
           }
         ]
@@ -84,7 +84,7 @@
               {
                 "group": "Guides",
                 "pages": [
-                  "/docs/guides"
+                  "docs/guides"
                 ],
                 "hidden": true
               },
@@ -92,97 +92,97 @@
                 "group": "Billing",
                 "icon": "credit-card",
                 "pages": [
-                  "/docs/guides/billing-accounts",
-                  "/docs/guides/billing-accounts/create",
-                  "/docs/guides/billing-accounts/configure-auto-recharge",
-                  "/docs/guides/billing-accounts/top-up"
+                  "docs/guides/billing-accounts",
+                  "docs/guides/billing-accounts/create",
+                  "docs/guides/billing-accounts/configure-auto-recharge",
+                  "docs/guides/billing-accounts/top-up"
                 ]
               },
               {
                 "group": "Clusters",
                 "icon": "cloud",
                 "pages": [
-                  "/docs/guides/clusters",
-                  "/docs/guides/clusters/create",
-                  "/docs/guides/clusters/manage",
-                  "/docs/guides/clusters/manage-machines"
+                  "docs/guides/clusters",
+                  "docs/guides/clusters/create",
+                  "docs/guides/clusters/manage",
+                  "docs/guides/clusters/manage-machines"
                 ]
               },
               {
                 "group": "Disks",
                 "icon": "hard-drive",
                 "pages": [
-                  "/docs/guides/disks",
-                  "/docs/guides/disks/create",
-                  "/docs/guides/disks/manage"
+                  "docs/guides/disks",
+                  "docs/guides/disks/create",
+                  "docs/guides/disks/manage"
                 ]
               },
               {
                 "group": "Images",
                 "icon": "compact-disc",
                 "pages": [
-                  "/docs/guides/images",
-                  "/docs/guides/images/create",
-                  "/docs/guides/images/manage"
+                  "docs/guides/images",
+                  "docs/guides/images/create",
+                  "docs/guides/images/manage"
                 ]
               },
               {
                 "group": "Machines",
                 "icon": "server",
                 "pages": [
-                  "/docs/guides/machines",
-                  "/docs/guides/machines/create",
-                  "/docs/guides/machines/deploy",
-                  "/docs/guides/machines/connect"
+                  "docs/guides/machines",
+                  "docs/guides/machines/create",
+                  "docs/guides/machines/deploy",
+                  "docs/guides/machines/connect"
                 ]
               },
               {
                 "group": "Networks",
                 "icon": "globe",
                 "pages": [
-                  "/docs/guides/networks",
-                  "/docs/guides/networks/create",
-                  "/docs/guides/networks/manage"
+                  "docs/guides/networks",
+                  "docs/guides/networks/create",
+                  "docs/guides/networks/manage"
                 ]
               },
               {
                 "group": "Object storage",
                 "icon": "bucket",
                 "pages": [
-                  "/docs/guides/object-storage",
-                  "/docs/guides/object-storage/create-a-user",
-                  "/docs/guides/object-storage/create-a-bucket",
-                  "/docs/guides/object-storage/command-line-tools"
+                  "docs/guides/object-storage",
+                  "docs/guides/object-storage/create-a-user",
+                  "docs/guides/object-storage/create-a-bucket",
+                  "docs/guides/object-storage/command-line-tools"
                 ]
               },
               {
                 "group": "Security groups",
                 "icon": "shield-check",
                 "pages": [
-                  "/docs/guides/security-groups",
-                  "/docs/guides/security-groups/create",
-                  "/docs/guides/security-groups/manage-rules"
+                  "docs/guides/security-groups",
+                  "docs/guides/security-groups/create",
+                  "docs/guides/security-groups/manage-rules"
                 ]
               },
               {
                 "group": "Virtual machines",
                 "icon": "computer",
                 "pages": [
-                  "/docs/guides/virtual-machines",
-                  "/docs/guides/virtual-machines/create",
-                  "/docs/guides/virtual-machines/connect",
-                  "/docs/guides/virtual-machines/manage",
-                  "/docs/guides/virtual-machines/resize"
+                  "docs/guides/virtual-machines",
+                  "docs/guides/virtual-machines/create",
+                  "docs/guides/virtual-machines/connect",
+                  "docs/guides/virtual-machines/manage",
+                  "docs/guides/virtual-machines/resize"
                 ]
               },
               {
                 "group": "Volumes",
                 "icon": "hard-drive",
                 "pages": [
-                  "/docs/guides/volumes",
-                  "/docs/guides/volumes/create",
-                  "/docs/guides/volumes/attach",
-                  "/docs/guides/volumes/manage"
+                  "docs/guides/volumes",
+                  "docs/guides/volumes/create",
+                  "docs/guides/volumes/attach",
+                  "docs/guides/volumes/manage"
                 ]
               }
             ]
@@ -198,7 +198,7 @@
               {
                 "group": "Tutorials",
                 "pages": [
-                  "/docs/tutorials"
+                  "docs/tutorials"
                 ],
                 "hidden": true
               },
@@ -206,40 +206,40 @@
                 "group": "AI & machine learning",
                 "icon": "brain",
                 "pages": [
-                  "/docs/tutorials/mlflow",
-                  "/docs/tutorials/pytorch",
-                  "/docs/tutorials/stable-diffusion",
-                  "/docs/tutorials/jupyter",
-                  "/docs/tutorials/ollama-and-google-gemma",
-                  "/docs/tutorials/tensorflow"
+                  "docs/tutorials/mlflow",
+                  "docs/tutorials/pytorch",
+                  "docs/tutorials/stable-diffusion",
+                  "docs/tutorials/jupyter",
+                  "docs/tutorials/ollama-and-google-gemma",
+                  "docs/tutorials/tensorflow"
                 ]
               },
               {
                 "group": "Bioinformatics",
                 "icon": "dna",
                 "pages": [
-                  "/docs/tutorials/gromacs",
-                  "/docs/tutorials/openmpi-cuda",
-                  "/docs/tutorials/parabricks"
+                  "docs/tutorials/gromacs",
+                  "docs/tutorials/openmpi-cuda",
+                  "docs/tutorials/parabricks"
                 ]
               },
               {
                 "group": "Rendering & video editing",
                 "icon": "video",
                 "pages": [
-                  "/docs/tutorials/blender-cycles-rendering",
-                  "/docs/tutorials/davinci-resolve",
-                  "/docs/tutorials/thinkbox-deadline"
+                  "docs/tutorials/blender-cycles-rendering",
+                  "docs/tutorials/davinci-resolve",
+                  "docs/tutorials/thinkbox-deadline"
                 ]
               },
               {
                 "group": "Other",
                 "icon": "cog",
                 "pages": [
-                  "/docs/tutorials/how-to-generate-ssh-keys",
-                  "/docs/tutorials/kong-api-gateway",
-                  "/docs/tutorials/minio",
-                  "/docs/tutorials/windows-rdp"
+                  "docs/tutorials/how-to-generate-ssh-keys",
+                  "docs/tutorials/kong-api-gateway",
+                  "docs/tutorials/minio",
+                  "docs/tutorials/windows-rdp"
                 ]
               }
             ]
@@ -252,13 +252,13 @@
           {
             "group": "Browse apps",
             "pages": [
-              "/docs/apps/index",
-              "/docs/apps/dify",
-              "/docs/apps/jupyterhub",
-              "/docs/apps/jupyterlab",
-              "/docs/apps/ollama",
-              "/docs/apps/openmanus",
-              "/docs/apps/vllm"
+              "docs/apps/index",
+              "docs/apps/dify",
+              "docs/apps/jupyterhub",
+              "docs/apps/jupyterlab",
+              "docs/apps/ollama",
+              "docs/apps/openmanus",
+              "docs/apps/vllm"
             ]
           }
         ]
@@ -272,66 +272,66 @@
               {
                 "group": "Help",
                 "pages": [
-                  "/docs/help"
+                  "docs/help"
                 ],
                 "hidden": true
               },
               {
                 "group": "Accounts",
                 "pages": [
-                  "/docs/help/accounts",
-                  "/docs/help/accounts/how-do-i-delete-my-affiliate-account",
-                  "/docs/help/accounts/where-can-i-change-my-password",
-                  "/docs/help/accounts/i-need-to-change-my-email-address",
-                  "/docs/help/accounts/how-do-i-change-my-account-details",
-                  "/docs/help/accounts/how-can-i-delete-my-default-payment-method",
-                  "/docs/help/accounts/how-can-i-delete-my-account",
-                  "/docs/help/accounts/how-can-i-create-an-account",
-                  "/docs/help/accounts/i-forgot-my-username-and-password",
-                  "/docs/help/accounts/i-forgot-my-password-what-can-i-do"
+                  "docs/help/accounts",
+                  "docs/help/accounts/how-do-i-delete-my-affiliate-account",
+                  "docs/help/accounts/where-can-i-change-my-password",
+                  "docs/help/accounts/i-need-to-change-my-email-address",
+                  "docs/help/accounts/how-do-i-change-my-account-details",
+                  "docs/help/accounts/how-can-i-delete-my-default-payment-method",
+                  "docs/help/accounts/how-can-i-delete-my-account",
+                  "docs/help/accounts/how-can-i-create-an-account",
+                  "docs/help/accounts/i-forgot-my-username-and-password",
+                  "docs/help/accounts/i-forgot-my-password-what-can-i-do"
                 ]
               },
               {
                 "group": "Billing",
                 "pages": [
-                  "/docs/help/billing",
-                  "/docs/help/billing/what-payment-methods-do-you-support",
-                  "/docs/help/billing/how-do-i-delete-my-cudo-compute-billing-account",
-                  "/docs/help/billing/what-is-the-difference-between-hourly-and-monthly-costs",
-                  "/docs/help/billing/when-do-i-get-invoiced-for-my-use",
-                  "/docs/help/billing/where-can-i-find-the-auto-recharge-feature"
+                  "docs/help/billing",
+                  "docs/help/billing/what-payment-methods-do-you-support",
+                  "docs/help/billing/how-do-i-delete-my-cudo-compute-billing-account",
+                  "docs/help/billing/what-is-the-difference-between-hourly-and-monthly-costs",
+                  "docs/help/billing/when-do-i-get-invoiced-for-my-use",
+                  "docs/help/billing/where-can-i-find-the-auto-recharge-feature"
                 ]
               },
               {
                 "group": "Compute",
                 "pages": [
-                  "/docs/help/compute",
-                  "/docs/help/compute/adding-a-user-to-a-project",
-                  "/docs/help/compute/how-do-i-delete-my-vm",
-                  "/docs/help/compute/why-is-windows-inactive",
-                  "/docs/help/compute/how-do-i-find-out-the-username-of-the-virtual-machine",
-                  "/docs/help/compute/how-do-i-recover-a-deleted-vm",
-                  "/docs/help/compute/how-do-i-create-a-vm",
-                  "/docs/help/compute/how-can-i-log-in-to-compute"
+                  "docs/help/compute",
+                  "docs/help/compute/adding-a-user-to-a-project",
+                  "docs/help/compute/how-do-i-delete-my-vm",
+                  "docs/help/compute/why-is-windows-inactive",
+                  "docs/help/compute/how-do-i-find-out-the-username-of-the-virtual-machine",
+                  "docs/help/compute/how-do-i-recover-a-deleted-vm",
+                  "docs/help/compute/how-do-i-create-a-vm",
+                  "docs/help/compute/how-can-i-log-in-to-compute"
                 ]
               },
               {
                 "group": "General",
                 "pages": [
-                  "/docs/help/general",
-                  "/docs/help/general/what-password-convention-do-i-need",
-                  "/docs/help/general/how-do-i-install-terraform-on-my-pc",
-                  "/docs/help/general/what-is-the-minimum-top-up-value",
-                  "/docs/help/general/what-is-a-virtual-machine",
-                  "/docs/help/general/am-i-charged-if-a-vm-is-stopped-powered-off",
-                  "/docs/help/general/why-cant-i-add-my-payment-method",
-                  "/docs/help/general/can-i-transfer-a-vm-between-projects",
-                  "/docs/help/general/where-can-i-check-the-service-status",
-                  "/docs/help/general/what-is-an-administrator-password-and-why-do-i-need-it",
-                  "/docs/help/general/how-can-i-get-support-for-my-problem",
-                  "/docs/help/general/what-is-ssh-and-why-do-i-need-it",
-                  "/docs/help/general/why-is-the-region-important",
-                  "/docs/help/general/how-to-get-started"
+                  "docs/help/general",
+                  "docs/help/general/what-password-convention-do-i-need",
+                  "docs/help/general/how-do-i-install-terraform-on-my-pc",
+                  "docs/help/general/what-is-the-minimum-top-up-value",
+                  "docs/help/general/what-is-a-virtual-machine",
+                  "docs/help/general/am-i-charged-if-a-vm-is-stopped-powered-off",
+                  "docs/help/general/why-cant-i-add-my-payment-method",
+                  "docs/help/general/can-i-transfer-a-vm-between-projects",
+                  "docs/help/general/where-can-i-check-the-service-status",
+                  "docs/help/general/what-is-an-administrator-password-and-why-do-i-need-it",
+                  "docs/help/general/how-can-i-get-support-for-my-problem",
+                  "docs/help/general/what-is-ssh-and-why-do-i-need-it",
+                  "docs/help/general/why-is-the-region-important",
+                  "docs/help/general/how-to-get-started"
                 ]
               }
             ]
