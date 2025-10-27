@@ -1,0 +1,114 @@
+---
+title: MLflow
+description: Learn how to use MLFlow, a platform to streamline machine learning development, with CUDO Compute.
+---
+
+MLflow is a platform to streamline machine learning development, including tracking experiments, packaging code into
+reproducible runs, and sharing and deploying models.
+MLflow can be used with many popular ML frameworks including:
+
+- Scikit-Learn
+- Keras
+- Tensorflow
+- Pytorch
+
+MLflow can track your experimental runs to create a repeatable auditable registry of models.
+
+## Quick start guide
+
+1. Prerequisites
+2. Introduction
+3. MLflow UI server
+4. MLflow runner for training ML models
+
+## Prerequisites
+
+- Create a project and [add an SSH key](/docs/tutorials/how-to-generate-ssh-keys)
+- Optionally download [CLI tool](/cli-tool)
+
+## Introduction
+
+In this deployment of MLflow we will set up one CUDO Compute virtual machine to serve the MLflow UI/Web app and store models and
+metrics from runs.
+We will then use a second CUDO Compute virtual machine to perform training, you can run as many of these as you like concurrently.
+They only need to run for the duration of training.
+
+Optionally you can use your local machine to run the web app if you are able to configure your network so that you have
+a port publicly accessible.
+
+## MLflow UI server
+
+Start a virtual machine on CUDO Compute, this can be CPU only no GPU. Use the `Ubuntu Minimal 20.04` image. This virtual machine should remain
+running for the duration of your work. Pick something with 8GB RAM or more.
+
+Get the IP address of the virtual machine. Enter replace the address in `tracking_ip` below with the IP address of the virtual machine and then
+run the commands below.
+
+```bash
+tracking_ip=xx.xx.xx.xx \
+tracking_port=5000 \
+ssh -o "StrictHostKeyChecking no" root@$tracking_ip << EOF
+apt-get update
+apt-get install lsof
+DEBIAN_FRONTEND=noninteractive apt-get install python3.10 python3-pip -y
+which python
+pip install click==8.0 'urllib3<=1.25'
+pip install mlflow
+kill $(lsof -t -i:$tracking_port)
+mlflow server --host $tracking_ip --port $tracking_port --backend-store-uri sqlite:///mlruns.db --default-artifact-root ./mlruns &
+EOF
+```
+
+All of your data is stored in `~/mlruns` directory and `~/mlruns.db` file
+
+_MLflow UI server on a local machine_
+Make sure port 5000 of your local machine is publicly accessible.
+
+```bash
+conda create mlflow_env
+conda activate mlflow_env
+conda install -c conda-forge mlflow -y
+mlflow server --host PUBLIC_IP_ADDRESS --port 5000
+```
+
+## MLflow runner for training ML models
+
+Start another virtual machine on CUDO Compute, this can be CPU only or a GPU machine. Use
+the `Ubuntu 22.04 + NVIDIA drivers + Docker` image.
+
+The script below pulls a docker container for MLflow, then MLflow pulls a GitHub repository and runs it. The GitHub
+repository is configured with MLflow projects. So when MLflow runs it creates a conda environment and installs the
+necessary python packages. Then it runs the model training.
+The training script logs its output to the `MLFLOW_TRACKING_URI`.
+
+Get the IP address from your CUDO Compute virtual machine that is used for training and replace `runner_ip` with it
+Get the IP address from your CUDO Compute virtual machine that is used for the MLFlow UI and replace `tracking_ip` with it
+
+### CPU only
+
+```bash
+tracking_ip=xx.xx.xx.xx \
+tracking_port=5000 \
+runner_ip=yy.yy.yy.yy \
+ssh -o "StrictHostKeyChecking no" root@$runner_ip << EOF
+docker run --rm -e MLFLOW_TRACKING_URI=http://$tracking_ip:$tracking_port \
+cudoventures/mlflow-runner \
+mlflow run https://github.com/mlflow/mlflow-example.git -P alpha=5.0
+EOF
+```
+
+### GPU
+
+```bash
+tracking_ip=xx.xx.xx.xx \
+tracking_port=5000 \
+runner_ip=yy.yy.yy.yy \
+ssh -o "StrictHostKeyChecking no" root@$runner_ip << EOF
+docker run --gpus all --rm -e MLFLOW_TRACKING_URI=http://$tracking_ip:$tracking_port \
+cudoventures/mlflow-runner \
+mlflow run https://github.com/mlflow/mlflow-example.git -P alpha=5.0
+EOF
+```
+
+Go to [http://tracking_ip:5000](http://tracking_ip:5000) to see the MLflow UI, you should be able to see your training results.
+

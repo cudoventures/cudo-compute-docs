@@ -1,0 +1,74 @@
+---
+title: Build a custom image for OpenMPI and CUDA Toolkit
+description: In this tutorial we with build a custom disk image that can be used on CUDO Compute virtual machines. The disk image will have OpenMPI with CUDA support.
+---
+
+OpenMPI is an open-source message passing interface (MPI) library used for parallel computing on distributed systems. It enables developers to create high-performance computing applications by allowing multiple processes to communicate and coordinate with each other across a network.
+
+## Quick start guide
+
+1. Prerequisites
+2. Starting a virtual machine with cudoctl
+3. Installing NVIDIA CUDA Toolkit and OpenMPI via SSH
+4. Creating a custom disk image
+
+## Prerequisites
+- Create a project and [add an SSH key](/docs/tutorials/how-to-generate-ssh-keys)
+- Download the [CLI tool](/cli-tool)
+
+## Starting a virtual machine with cudoctl
+Start a virtual machine with the base image you require, here we will start with an image that already has NVIDIA drivers.
+
+You can use the web console to start a virtual machine using the **Ubuntu 22.04 + NVIDIA drivers + Docker** image or alternatively use the command line tool ``cudoctl``
+
+First we search to find a virtual machine type to start
+```shell
+cudoctl search --vcpus 4 --mem 8 --gpus 1
+````
+After deciding on a machine type of ``epyc-milan-rtx-a4000`` in the ``se-smedjebacken-1`` data center we can start a virtual machine:
+
+```shell
+cudoctl vm create --id mpi-cuda --image ubuntu-nvidia-docker --machine-type epyc-milan-rtx-a4000 --memory 8 --vcpus 4  --gpus 1 --boot-disk-size 100 -boot-disk-class network --data-center se-smedjebacken-1
+```
+## Installing NVIDIA CUDA Toolkit and OpenMPI via SSH
+Get the IP address of the virtual machine
+```shell
+cudoctl vm get mpi-cuda | grep IP
+```
+
+Insert the IP address into this snippet and run it to install CUDA and OpenMPI
+```shell
+ssh root@<YOUR_IP> << EOF
+wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-ubuntu2204.pin
+mv cuda-ubuntu2204.pin /etc/apt/preferences.d/cuda-repository-pin-600
+wget https://developer.download.nvidia.com/compute/cuda/12.3.2/local_installers/cuda-repo-ubuntu2204-12-3-local_12.3.2-545.23.08-1_amd64.deb
+dpkg -i cuda-repo-ubuntu2204-12-3-local_12.3.2-545.23.08-1_amd64.deb
+cp /var/cuda-repo-ubuntu2204-12-3-local/cuda-*-keyring.gpg /usr/share/keyrings/
+apt-get update
+apt-get -y install cuda-toolkit-12-3
+
+wget https://download.open-mpi.org/release/open-mpi/v5.0/openmpi-5.0.2.tar.gz
+tar xf openmpi-5.0.2.tar.gz
+cd openmpi-5.0.2
+./configure  --with-cuda=/usr/local/cuda
+make -j8 all
+make install
+echo >> export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH >> ~/.bashrc
+EOF
+```
+
+Wait for the installation to finish
+
+## Creating a custom disk image
+
+Create a new disk called ``mpi-cuda-image``
+
+```shell
+cudoctl vm save-image --vm mpi-cuda mpi-cuda-image
+```
+
+Now we can create an MPI worker with it
+```shell
+cudoctl vm create --id mpi-cuda-worker --image mpi-cuda-image --machine-type epyc-milan-rtx-a4000 --memory 8 --vcpus 4 --gpus 1 --boot-disk-size 100 -boot-disk-class network --data-center se-smedjebacken-1
+```
+

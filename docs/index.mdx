@@ -1,0 +1,107 @@
+---
+title: "Introduction"
+description: "Documentation, API reference, tutorials & guides for the CUDO Compute platform."
+---
+<Tip>Welcome - this is the hub for building on CUDO Compute: deploy GPU & CPU capacity, manage storage & networking, automate with our API, and integrate using open tooling.</Tip>
+
+## Get started fast
+
+<Steps>
+  <Step title="Create an account" icon="user-plus">Sign up or log in at <Link href="https://compute.cudo.org" target="_blank">compute.cudo.org</Link> and complete email verification.</Step>
+  <Step title="Create billing + project" icon="credit-card">Add a billing account, attach a payment method, then create (or select) a project namespace for your resources.</Step>
+  <Step title="Get an API key" icon="key">Generate a key in the web dashboard. Keep it secret; rotate if compromised.</Step>
+  <Step title="Deploy your first resource" icon="rocket">Follow the <Link href="/quickstart">Quickstart</Link> to launch a virtual machine or cluster, or jump straight into the <Link href="/docs/api/introduction">API reference</Link>.</Step>
+</Steps>
+
+<CardGroup cols={3}>
+  <Card title="Quickstart" icon="rocket" href="/quickstart">Minimal path from signup to first deployment in minutes.</Card>
+  <Card title="API Keys" icon="key" href="/docs/api/authentication">Create & manage keys for automation.</Card>
+  <Card title="CLI (cudoctl)" icon="terminal" href="/tools/cli">Configure, script & inspect resources locally.</Card>
+  <Card title="Python Client" icon="python" href="/tools/python-client">Programmatic convenience layer over REST endpoints.</Card>
+  <Card title="dstack" icon="box" href="/tools/dstack">Integrate with MLOps / workload orchestration.</Card>
+  <Card title="Terraform" icon="/images/terraform.svg" color="transparent" href="https://registry.terraform.io/providers/CudoVentures/cudo/latest/docs" target="_blank">Manage infrastructure as code.</Card>
+</CardGroup>
+
+## Why CUDO Compute
+
+CUDO Compute is a democratised cloud platform aggregating independently operated data centers to provide globally distributed, high-performance AI infrastructure with transparent economics.
+
+- High performance GPU & CPU capacity (clusters, bare metal & virtual machines)
+- Consistent API + tooling
+- Pay-as-you-go with project & billing account isolation
+- Infrastructure-as-code & automation friendly (CLI, API, Terraform)
+- Secure networking, images, and fine-grained access controls
+
+## Platform capabilities
+
+<Tabs>
+  <Tab title="Compute" icon="microchip">
+    <CardGroup cols={3}>
+      <Card title="Clusters" icon="cloud" href="/docs/guides/clusters/">Pool and scale machines for distributed jobs.</Card>
+      <Card title="Bare Metal" icon="server" href="/docs/guides/machines/">Dedicated multi-GPU machines with full control.</Card>
+      <Card title="Virtual Machines" icon="computer" href="/docs/guides/virtual-machines/">Flexible, resizable virtual machines for general workloads.</Card>
+    </CardGroup>
+  </Tab>
+  <Tab title="Storage" icon="database">
+    <CardGroup cols={3}>
+      <Card title="Volumes" icon="hard-drive" href="/docs/guides/volumes/">Attach persistent block storage to cluster machines.</Card>
+      <Card title="Disks" icon="hard-drive" href="/docs/guides/disks/">Boot & data disks for virtual machines.</Card>
+      <Card title="Object Storage" icon="bucket" href="/docs/guides/object-storage/">S3-compatible storage for datasets & artifacts.</Card>
+    </CardGroup>
+  </Tab>
+  <Tab title="Networking & Security" icon="globe">
+    <CardGroup cols={3}>
+      <Card title="Networks" icon="globe" href="/docs/guides/networks/">Private networking & IP management.</Card>
+      <Card title="Security Groups" icon="shield" href="/docs/guides/security-groups/">Ingress / egress rule enforcement.</Card>
+      <Card title="SSH Keys" icon="key" href="/docs/guides/virtual-machines/create-a-virtual-machine#ssh-keys">Secure access to instances.</Card>
+    </CardGroup>
+  </Tab>
+  <Tab title="Images & OS" icon="image">
+    <CardGroup cols={3}>
+      <Card title="Public Images" icon="compact-disc" href="/docs/guides/images/">Curated OS & GPU-ready images.</Card>
+      <Card title="Private Images" icon="compact-disc" href="/docs/guides/images/create-an-image">Capture and reuse your own.</Card>
+      <Card title="Cloud-init" icon="cog" href="/docs/guides/virtual-machines/create-a-virtual-machine#startup-script">Automate first-boot configuration.</Card>
+    </CardGroup>
+  </Tab>
+  <Tab title="Automation & Tooling" icon="code">
+    <CardGroup cols={3}>
+      <Card title="REST API" icon="code" href="/docs/api/introduction">Resource-oriented JSON API.</Card>
+      <Card title="CLI" icon="terminal" href="/tools/cli">Low-friction scripting & inspection.</Card>
+      <Card title="Python" icon="python" href="/tools/python-client">Native client library.</Card>
+      <Card title="dstack" icon="box" href="/tools/dstack">MLOps / workload orchestration.</Card>
+      <Card title="Terraform" icon="/images/terraform.svg" color="transparent"  href="https://registry.terraform.io/providers/CudoVentures/cudo/latest/docs" target="_blank">Infra as code workflows.</Card>
+      <Card title="OpenAPI" icon="file" href="/docs/api/introduction#openapi-specification">The CUDO Compute OpenAPI schema.</Card>
+    </CardGroup>
+  </Tab>
+</Tabs>
+
+## Choose your path
+
+<CardGroup cols={3}>
+  <Card title="Learn the concepts" icon="book" href="/docs/api/introduction#key-concepts">Understand core primitives before scaling.</Card>
+  <Card title="Deploy quickly" icon="rocket" href="/quickstart">Follow a concise end-to-end walkthrough.</Card>
+  <Card title="Automate" icon="code" href="/docs/api/introduction">Integrate via API, CLI, Terraform & SDKs.</Card>
+</CardGroup>
+
+## Support & resources
+
+<AccordionGroup>
+  <Accordion title="Help center" icon="life-ring">Browse common questions & troubleshooting in <Link href="/docs/help/">Help</Link>.</Accordion>
+  <Accordion title="Report an issue" icon="warning">Open a ticket via the console or email support@cudocompute.com with context (resource IDs, timestamps, error codes).</Accordion>
+  <Accordion title="Request features" icon="sparkles">Let us know what would accelerate your workloads-reach out through support channels.</Accordion>
+  <Accordion title="Status & availability" icon="cloud">Platform & data center status dashboard (coming soon).</Accordion>
+</AccordionGroup>
+
+<Note type="info">Have feedback? A confusing step? Missing tutorial? Reach out - your input directly shapes the roadmap.</Note>
+
+## Next steps
+
+<Checklist>
+  <CheckItem>Complete the <Link href="/quickstart">Quickstart</Link></CheckItem>
+  <CheckItem>Create / rotate an <Link href="/docs/api/authentication">API key</Link></CheckItem>
+  <CheckItem>Deploy a <Link href="/docs/guides/virtual-machines/create-a-virtual-machine">virtual machine</Link> or <Link href="/docs/guides/machines/create-a-bare-metal-machine">bare metal machine</Link></CheckItem>
+  <CheckItem>Automate with the <Link href="/tools/cli">CLI</Link> or <Link href="/tools/python-client">Python client</Link></CheckItem>
+  <CheckItem>Track changes in the <Link href="/docs/api/changelog">Changelog</Link></CheckItem>
+</Checklist>
+
+<Tip>Bookmark this page for a curated map of the most important docs as we expand.</Tip>
