@@ -1,0 +1,134 @@
+---
+title: Ollama
+description: Ollama is the easiest way to deploy open source LLMs
+---
+
+Ollama empowers users to work with large language models (LLMs) through its library of open-source models and its user-friendly API. This allows users to choose the best LLM for their specific task, whether it's text generation, translation, or code analysis. Ollama also simplifies interaction with different LLMs, making them accessible to a wider audience and fostering a more flexible and efficient LLM experience.
+
+## Get started
+Go to the apps section in the web console and click either the small, medium or large instance of Ollama. This will give you some good default settings but you can fully customise your deployment at the next step.
+
+### Customise the deployment
+You can just choose an id for your App and deploy it. Or you may want to configure the spec of the machine.
+
+#### GPU selection
+The model(s) you wish to run will determine the amount of VRAM you will need on your GPU.
+
+Ollama supports a list of models available on [ollama.com/library](https://ollama.com/library 'ollama model library')
+
+Here are some example models that can be downloaded:
+
+| Model              | Parameters | Size  | Download                         |
+| ------------------ | ---------- | ----- | -------------------------------- |
+| Gemma 3            | 1B         | 815MB | `ollama run gemma3:1b`           |
+| Gemma 3            | 4B         | 3.3GB | `ollama run gemma3`              |
+| Gemma 3            | 12B        | 8.1GB | `ollama run gemma3:12b`          |
+| Gemma 3            | 27B        | 17GB  | `ollama run gemma3:27b`          |
+| QwQ                | 32B        | 20GB  | `ollama run qwq`                 |
+| DeepSeek-R1        | 7B         | 4.7GB | `ollama run deepseek-r1`         |
+| DeepSeek-R1        | 671B       | 404GB | `ollama run deepseek-r1:671b`    |
+| Llama 3.3          | 70B        | 43GB  | `ollama run llama3.3`            |
+| Llama 3.2          | 3B         | 2.0GB | `ollama run llama3.2`            |
+| Llama 3.2          | 1B         | 1.3GB | `ollama run llama3.2:1b`         |
+| Llama 3.2 Vision   | 11B        | 7.9GB | `ollama run llama3.2-vision`     |
+| Llama 3.2 Vision   | 90B        | 55GB  | `ollama run llama3.2-vision:90b` |
+| Llama 3.1          | 8B         | 4.7GB | `ollama run llama3.1`            |
+| Llama 3.1          | 405B       | 231GB | `ollama run llama3.1:405b`       |
+| Phi 4              | 14B        | 9.1GB | `ollama run phi4`                |
+| Phi 4 Mini         | 3.8B       | 2.5GB | `ollama run phi4-mini`           |
+| Mistral            | 7B         | 4.1GB | `ollama run mistral`             |
+| Moondream 2        | 1.4B       | 829MB | `ollama run moondream`           |
+| Neural Chat        | 7B         | 4.1GB | `ollama run neural-chat`         |
+| Starling           | 7B         | 4.1GB | `ollama run starling-lm`         |
+| Code Llama         | 7B         | 3.8GB | `ollama run codellama`           |
+| Llama 2 Uncensored | 7B         | 3.8GB | `ollama run llama2-uncensored`   |
+| LLaVA              | 7B         | 4.5GB | `ollama run llava`               |
+| Granite-3.2         | 8B         | 4.9GB | `ollama run granite3.2`          |
+
+**Note:** You should have at least 8 GB of RAM available to run the 7B models, 16 GB to run the 13B models, and 32 GB to run the 33B models.
+
+#### Disk size
+The default disk size is set between 100-200GB which should be enough for most users. However, some people often wish to compare the performance of many models so if you plan to download and use multiple models consider increasing your boot disk size.
+
+## Using Ollama
+When you deploy the VM you will be shown the VM information page. On the left hand side there is a pane called 'Metadata'. For Ollama we can see the following metadata:
+
+```
+CUDO_TOKEN	cudo_8c744hxyo2 # your authetication token
+appId	ollama
+port	8080  # the port to access ollama
+```
+
+To connect you need your VMs IP address, the ``port`` and ``CUDO_TOKEN``
+
+### Pull a model
+Use curl from your local machine to pull a model. Model list is here: [Ollama library](https://ollama.com/library)
+The model needs to fit on your GPU memory and VM Disk.
+
+Here is an example curl request pulling tinyllama:
+
+```shell
+curl --header "Authorization: Bearer cudo_8c744hxyo2" http://198.145.104.51:8080/api/pull -d '{"model": "tinyllama"}'
+```
+
+## Test completion
+Now try sending a completion using curl, here we have turned streaming to make the response more readable.
+```shell
+curl --header "Authorization: Bearer cudo_8c744hxyo2" http://198.145.104.51:8080/api/generate -d '{"model": "tinyllama","prompt": "Why is the sky blue?", "stream": false}'
+```
+
+### Continue with curl / REST API
+The API has more end points listed below, you can continue using curl or any other REST tool: [API docs](https://github.com/ollama/ollama/blob/main/docs/api.md)
+- Generate a completion
+- Generate a chat completion
+- Create a Model
+- List Local Models
+- Show Model Information
+- Copy a Model
+- Delete a Model
+- Pull a Model
+- Push a Model
+- Generate Embeddings
+- List Running Models
+- Version
+
+## Using Ollama with OpenAI API
+Ollama also supports and OpenAI compatible API.
+
+**Note:** OpenAI compatibility is experimental and is subject to major adjustments including breaking changes. For fully-featured access to the Ollama API, see the Ollama [Python library](https://github.com/ollama/ollama-python), [JavaScript library](https://github.com/ollama/ollama-js) and [REST API](https://github.com/ollama/ollama/blob/main/docs/api.md).
+
+Install the openai sdk:
+
+```shell
+pip install openai
+```
+
+Get your IP address from the VM info page and the ``port`` and ``CUDO_TOKEN`` from the Metadata pane just below.
+
+```
+CUDO_TOKEN	cudo_8c744hxyo2 # your authetication token
+appId	ollama
+port	8080  # the port to access ollama
+```
+
+Using python you can write:
+
+```python
+ip  = "192.0.0.0"
+port = 8080
+cudo_token = "cudo_8c744hxyo2"
+from openai import OpenAI
+
+client = OpenAI(
+    base_url=f"http://{ip}:{port}/v1/",
+    api_key=cudo_token,
+)
+
+list_completion = client.models.list()
+
+print(list_completion.data)
+```
+
+See more here: [OpenAI docs](https://github.com/ollama/ollama/blob/main/docs/openai.md)
+
+:LearnMore

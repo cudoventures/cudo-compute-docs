@@ -247,6 +247,23 @@
         ]
       },
       {
+        "tab": "Apps",
+        "groups": [
+          {
+            "group": "Browse apps",
+            "pages": [
+              "/apps/index",
+              "/apps/dify",
+              "/apps/jupyterhub",
+              "/apps/jupyterlab",
+              "/apps/ollama",
+              "/apps/openmanus",
+              "/apps/vllm"
+            ]
+          }
+        ]
+      },
+      {
         "tab": "Help",
         "groups": [
           {
@@ -373,19 +390,19 @@
       "destination": "/guides/machines"
     },
     {
-      "source": "/bare-metal/connect-to-a-bare-metal-machine",
+      "source": "/machines/connect-to-a-bare-metal-machine",
       "destination": "/guides/machines/connect"
     },
     {
-      "source": "/bare-metal/create-a-bare-metal-machine",
+      "source": "/machines/create-a-bare-metal-machine",
       "destination": "/guides/machines/create"
     },
     {
-      "source": "/bare-metal/deploy-a-bare-metal-machine-configuration",
+      "source": "/machines/deploy-a-bare-metal-machine-configuration",
       "destination": "/guides/machines/deploy"
     },
     {
-      "source": "/bare-metal/manage-a-bare-metal-machine",
+      "source": "/machines/manage-a-bare-metal-machine",
       "destination": "/guides/machines/manage"
     },
     {
