@@ -55,7 +55,7 @@
           {
             "group": "Basics",
             "pages": [
-              "docs/api",
+              "docs/api/index",
               "docs/api/authentication",
               "docs/api/errors"
             ]
