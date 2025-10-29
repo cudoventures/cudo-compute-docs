@@ -355,8 +355,8 @@
   "navbar": {
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://compute.cudo.org"
+      "label": "Console",
+      "href": "https://compute.cudo.org/"
     }
   },
   "contextual": {
