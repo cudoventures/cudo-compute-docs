@@ -381,199 +381,199 @@
   "redirects": [
     {
       "source": "/bare-metal",
-      "destination": "/docs/guides/machines"
+      "destination": "docs/guides/machines"
     },
     {
       "source": "/machines/connect-to-a-bare-metal-machine",
-      "destination": "/docs/guides/machines/connect"
+      "destination": "docs/guides/machines/connect"
     },
     {
       "source": "/machines/create-a-bare-metal-machine",
-      "destination": "/docs/guides/machines/create"
+      "destination": "docs/guides/machines/create"
     },
     {
       "source": "/machines/deploy-a-bare-metal-machine-configuration",
-      "destination": "/docs/guides/machines/deploy"
+      "destination": "docs/guides/machines/deploy"
     },
     {
       "source": "/machines/manage-a-bare-metal-machine",
-      "destination": "/docs/guides/machines/manage"
+      "destination": "docs/guides/machines/manage"
     },
     {
       "source": "/billing",
-      "destination": "/docs/guides/billing-accounts"
+      "destination": "docs/guides/billing-accounts"
     },
     {
       "source": "/billing/configure-auto-recharge",
-      "destination": "/docs/guides/billing-accounts/configure-auto-recharge"
+      "destination": "docs/guides/billing-accounts/configure-auto-recharge"
     },
     {
       "source": "/billing/create-a-billing-account",
-      "destination": "/docs/guides/billing-accounts/create"
+      "destination": "docs/guides/billing-accounts/create"
     },
     {
       "source": "/billing/top-up-billing-account",
-      "destination": "/docs/guides/billing-accounts/top-up"
+      "destination": "docs/guides/billing-accounts/top-up"
     },
     {
       "source": "/cli-tool",
-      "destination": "/docs/tools/cudoctl"
+      "destination": "docs/tools/cudoctl"
     },
     {
       "source": "/cli-tool/help",
-      "destination": "/docs/tools/cudoctl"
+      "destination": "docs/tools/cudoctl"
     },
     {
       "source": "/cli-tool/projects",
-      "destination": "/docs/tools/cudoctl"
+      "destination": "docs/tools/cudoctl"
     },
     {
       "source": "/cli-tool/search",
-      "destination": "/docs/tools/cudoctl"
+      "destination": "docs/tools/cudoctl"
     },
     {
       "source": "/cli-tool/ssh-keys",
-      "destination": "/docs/tools/cudoctl"
+      "destination": "docs/tools/cudoctl"
     },
     {
       "source": "/cli-tool/virtual-machines",
-      "destination": "/docs/tools/cudoctl"
+      "destination": "docs/tools/cudoctl"
     },
     {
       "source": "/clusters",
-      "destination": "/docs/guides/clusters"
+      "destination": "docs/guides/clusters"
     },
     {
       "source": "/clusters/create-a-cluster",
-      "destination": "/docs/guides/clusters/create"
+      "destination": "docs/guides/clusters/create"
     },
     {
       "source": "/clusters/manage-a-cluster",
-      "destination": "/docs/guides/clusters/manage"
+      "destination": "docs/guides/clusters/manage"
     },
     {
       "source": "/clusters/manage-cluster-machines",
-      "destination": "/docs/guides/clusters/manage-machines"
+      "destination": "docs/guides/clusters/manage-machines"
     },
     {
       "source": "/disks",
-      "destination": "/docs/guides/disks"
+      "destination": "docs/guides/disks"
     },
     {
       "source": "/disks/create-a-disk",
-      "destination": "/docs/guides/disks/create"
+      "destination": "docs/guides/disks/create"
     },
     {
       "source": "/disks/manage-a-disk",
-      "destination": "/docs/guides/disks/manage"
+      "destination": "docs/guides/disks/manage"
     },
     {
       "source": "/images",
-      "destination": "/docs/guides/images"
+      "destination": "docs/guides/images"
     },
     {
       "source": "/images/create-an-image",
-      "destination": "/docs/guides/images/create"
+      "destination": "docs/guides/images/create"
     },
     {
       "source": "/images/manage-an-image",
-      "destination": "/docs/guides/images/manage"
+      "destination": "docs/guides/images/manage"
     },
     {
       "source": "/networks",
-      "destination": "/docs/guides/networks"
+      "destination": "docs/guides/networks"
     },
     {
       "source": "/networks/create-a-network",
-      "destination": "/docs/guides/networks/create"
+      "destination": "docs/guides/networks/create"
     },
     {
       "source": "/networks/manage-a-network",
-      "destination": "/docs/guides/networks/manage"
+      "destination": "docs/guides/networks/manage"
     },
     {
       "source": "/object-storage",
-      "destination": "/docs/guides/object-storage"
+      "destination": "docs/guides/object-storage"
     },
     {
       "source": "/object-storage/command-line-tools",
-      "destination": "/docs/guides/object-storage/command-line-tools"
+      "destination": "docs/guides/object-storage/command-line-tools"
     },
     {
       "source": "/object-storage/create-a-bucket",
-      "destination": "/docs/guides/object-storage/create-bucket"
+      "destination": "docs/guides/object-storage/create-bucket"
     },
     {
       "source": "/object-storage/create-a-user",
-      "destination": "/docs/guides/object-storage/create-user"
+      "destination": "docs/guides/object-storage/create-user"
     },
     {
       "source": "/rest-api",
-      "destination": "/docs/api"
+      "destination": "docs/api"
     },
     {
       "source": "/rest-api/api-keys",
-      "destination": "/docs/api/api-keys"
+      "destination": "docs/api/api-keys"
     },
     {
       "source": "/security-groups",
-      "destination": "/docs/guides/security-groups"
+      "destination": "docs/guides/security-groups"
     },
     {
       "source": "/security-groups/create-a-security-group",
-      "destination": "/docs/guides/security-groups/create"
+      "destination": "docs/guides/security-groups/create"
     },
     {
       "source": "/security-groups/manage-security-group-rules",
-      "destination": "/docs/guides/security-groups/manage-rules"
+      "destination": "docs/guides/security-groups/manage-rules"
     },
     {
       "source": "/supply",
-      "destination": "/docs/suppliers"
+      "destination": "docs/suppliers"
     },
     {
       "source": "/supply/pricing",
-      "destination": "/docs/suppliers/pricing"
+      "destination": "docs/suppliers/pricing"
     },
     {
       "source": "/supply/requirements",
-      "destination": "/docs/suppliers/requirements"
+      "destination": "docs/suppliers/requirements"
     },
     {
       "source": "/virtual-machines",
-      "destination": "/docs/guides/virtual-machines"
+      "destination": "docs/guides/virtual-machines"
     },
     {
       "source": "/virtual-machines/connect-to-a-virtual-machine",
-      "destination": "/docs/guides/virtual-machines/connect"
+      "destination": "docs/guides/virtual-machines/connect"
     },
     {
       "source": "/virtual-machines/create-a-virtual-machine",
-      "destination": "/docs/guides/virtual-machines/create"
+      "destination": "docs/guides/virtual-machines/create"
     },
     {
       "source": "/virtual-machines/manage-a-virtual-machine",
-      "destination": "/docs/guides/virtual-machines/manage"
+      "destination": "docs/guides/virtual-machines/manage"
     },
     {
       "source": "/virtual-machines/resize-a-virtual-machine",
-      "destination": "/docs/guides/virtual-machines/resize"
+      "destination": "docs/guides/virtual-machines/resize"
     },
     {
       "source": "/volumes",
-      "destination": "/docs/guides/volumes"
+      "destination": "docs/guides/volumes"
     },
     {
       "source": "/volumes/attach-a-volume-to-a-cluster-machine",
-      "destination": "/docs/guides/volumes/attach"
+      "destination": "docs/guides/volumes/attach"
     },
     {
       "source": "/volumes/create-a-volume",
-      "destination": "/docs/guides/volumes/create"
+      "destination": "docs/guides/volumes/create"
     },
     {
       "source": "/volumes/manage-a-volume",
-      "destination": "/docs/guides/volumes/manage"
+      "destination": "docs/guides/volumes/manage"
     }
   ]
 }
