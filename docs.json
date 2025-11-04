@@ -144,8 +144,8 @@
                 "icon": "bucket",
                 "pages": [
                   "docs/guides/object-storage/index",
-                  "docs/guides/object-storage/create-a-user",
-                  "docs/guides/object-storage/create-a-bucket",
+                  "docs/guides/object-storage/create-user",
+                  "docs/guides/object-storage/create-bucket",
                   "docs/guides/object-storage/command-line-tools"
                 ]
               },
