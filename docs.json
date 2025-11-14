@@ -17,6 +17,11 @@
     "default": "dark",
     "strict": true
   },
+  "integrations": {
+    "telemetry": {
+      "enabled": false
+    }
+  },
   "favicon": "/favicon.svg",
   "navigation": {
     "tabs": [
