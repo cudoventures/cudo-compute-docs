@@ -54,10 +54,11 @@ export const CliToolTable = () => {
         <Card
           key={bin.id}
           href={bin.url}
-
         >
-          <Icon icon={getOsImageIcon(bin.id)} size={18} color="transparent" alt={bin.name} />
-          <span style={{ marginLeft: '.4rem', fontSize: '0.8rem' }}>{bin.name}</span>
+          <span className="flex flex-row items-center justify-center">
+            <Icon icon={getOsImageIcon(bin.id)} size={24} color="transparent" alt={bin.name} />
+            <span style={{ marginLeft: '.6rem', fontSize: '0.8rem' }}>{bin.name}</span>
+          </span>
         </Card>
       ))}
     </Columns>
