@@ -8,6 +8,7 @@
     "scripts": {
         "dev": "pnpx mint dev",
         "sort:api": "node ./lib/sortTags.js -i ./docs/openapi.json -p",
+        "fix:deprecated": "node ./lib/fixDeprecated.js",
         "gen:api": "node ./lib/genRefPages.js -i ./docs/openapi.json -o ./docs/output",
         "scrape:api": "npx @mintlify/scraping@latest openapi-file ./docs/openapi.json -o ./docs/output",
         "gen:help": "node ./lib/genHelpFromCsv.js -i ./lib/contentful-help-export.csv --update-nav ./docs.json"

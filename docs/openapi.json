@@ -265,7 +265,8 @@
           "sizeGib"
         ],
         "title": "BootDisk",
-        "type": "object"
+        "type": "object",
+        "deprecated": true
       },
       "Charge": {
         "properties": {
@@ -890,7 +891,8 @@
           "userData": {
             "description": "DEPRECATED: use `startScript` to run a script on boot, and `sshKeySource` or `customSshKeys` to set authorized ssh keys",
             "title": "userData",
-            "type": "string"
+            "type": "string",
+            "deprecated": true
           }
         },
         "required": [
@@ -2182,7 +2184,8 @@
           "userData": {
             "description": "DEPRECATED: use `startScript` to run a script on boot, and `sshKeySource` or `customSshKeys` to set authorized ssh keys",
             "title": "userData",
-            "type": "string"
+            "type": "string",
+            "deprecated": true
           }
         },
         "required": [
@@ -6930,7 +6933,8 @@
                   "userData": {
                     "description": "DEPRECATED: use `startScript` to run a script on boot, and `sshKeySource` or `customSshKeys` to set authorized ssh keys",
                     "title": "userData",
-                    "type": "string"
+                    "type": "string",
+                    "deprecated": true
                   }
                 },
                 "required": [
@@ -7197,7 +7201,8 @@
                   "userData": {
                     "description": "DEPRECATED: use `startScript` to run a script on boot, and `sshKeySource` or `customSshKeys` to set authorized ssh keys",
                     "title": "userData",
-                    "type": "string"
+                    "type": "string",
+                    "deprecated": true
                   }
                 },
                 "required": [
