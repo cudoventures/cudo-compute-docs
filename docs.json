@@ -40,7 +40,6 @@
             "pages": [
               "docs/tools/cudoctl",
               "docs/tools/python-client",
-              "docs/tools/dstack",
               "docs/tools/terraform"
             ]
           },
